@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Dialog</title></head>
+<body>
+  <button onclick="document.getElementById('confirm').showModal()">Delete Account</button>
+  <dialog id="confirm">
+    <h2>Confirm Deletion</h2>
+    <p>This action cannot be undone. Are you sure?</p>
+    <form method="dialog"><button value="cancel">Cancel</button><button value="delete">Yes, Delete</button></form>
+  </dialog>
+  <script>const dialog = document.getElementById('confirm'); dialog.addEventListener('close', () => console.log(dialog.returnValue));</script>
+</body>
+</html>
