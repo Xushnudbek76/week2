@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Semantic HTML – Exercises 1–8</title>
+</head>
+<body>
+
+  <!-- Exercise 1 -->
+  <section id="e1">
+    <h2>Exercise 1: Convert Div Soup</h2>
+
+    <header>
+      <h1>Gachon Blog</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/posts">Posts</a>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+        <h2>My First Post</h2>
+        <p>Today I learned about semantic HTML.</p>
+      </article>
+
+      <aside>
+        <h2>Recent Posts</h2>
+        <ul>
+          <li>Intro to HTML</li>
+        </ul>
+      </aside>
+    </main>
+
+    <footer>
+      <p>© 2026</p>
+    </footer>
+  </section>
+
+  <hr>
+
+  <!-- Exercise 2 -->
+  <section id="e2">
+    <h2>Exercise 2: Blog Article</h2>
+
+    <article>
+      <header>
+        <h2>Why I Love Web Development</h2>
+        <p>
+          By Xushnudbek ·
+          <time datetime="2026-09-11">September 11, 2026</time>
+        </p>
+      </header>
+
+      <p>I enjoy building <strong>full-stack applications</strong> using modern technologies.</p>
+
+      <p>Semantic HTML makes websites more <em>accessible</em> and easier to maintain.</p>
+
+      <footer>
+        <p>Tags: HTML · Accessibility · Web</p>
+      </footer>
+    </article>
+  </section>
+
+  <hr>
+
+  <!-- Exercise 3 -->
+  <section id="e3">
+    <h2>Exercise 3: Figure & Time</h2>
+
+    <figure>
+      <img src="https://picsum.photos/400/250?random=10"
+           alt="Random colorful landscape"
+           width="400">
+      <figcaption>Figure 1: Random colorful landscape.</figcaption>
+    </figure>
+
+    <p>
+      This page was created on
+      <time datetime="2026-09-05">September 5, 2026</time>.
+    </p>
+
+    <figure>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <figcaption>Figure 2: Basic HTML skeleton.</figcaption>
+    </figure>
+  </section>
+
+  <hr>
+
+  <!-- Exercise 4 -->
+  <section id="e4">
+    <h2>Exercise 4: FAQ</h2>
+
+    <details open>
+      <summary>What is Semantic HTML?</summary>
+      <p>Semantic HTML uses elements according to their meaning.</p>
+    </details>
+
+    <details>
+      <summary>What does &lt;main&gt; represent?</summary>
+      <p>The main and unique content of the webpage.</p>
+    </details>
+
+    <details>
+      <summary>Why do we use &lt;nav&gt;?</summary>
+      <p>It identifies major navigation links.</p>
+    </details>
+
+    <details>
+      <summary>When should I use &lt;article&gt;?</summary>
+      <p>Use it for self-contained content such as blog posts or news articles.</p>
+    </details>
+  </section>
+
+  <hr>
+
+  <!-- Exercise 5 -->
+  <section id="e5">
+    <h2>Exercise 5: Portfolio</h2>
+
+    <header>
+      <h1>Xushnudbek</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <section id="about">
+        <h2>About Me</h2>
+
+        <figure>
+          <img src="https://picsum.photos/200"
+               alt="Profile photo"
+               width="200">
+          <figcaption>Computer Science Student</figcaption>
+        </figure>
+
+        <p>
+          I study at
+          <abbr title="Gachon University">GU</abbr>
+          and enjoy
+          <mark>AI & Web Development</mark>.
+        </p>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+
+        <article>
+          <header>
+            <h3>Insurance AI Platform</h3>
+            <p><time datetime="2026-09">September 2026</time></p>
+          </header>
+
+          <p>Built with <code>Next.js</code>, <code>NestJS</code>, GraphQL and MongoDB.</p>
+        </article>
+      </section>
+
+      <aside id="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript</li>
+          <li>Next.js</li>
+          <li>NestJS</li>
+        </ul>
+      </aside>
+
+      <section id="contact">
+        <h2>Contact</h2>
+
+        <address>
+          Email: xushnud@example.com <br>
+          GitHub: github.com/xushnudbek
+        </address>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>© 2026 Xushnudbek</p>
+    </footer>
+  </section>
+
+  <hr>
+
+  <!-- Exercise 6 -->
+  <section id="e6">
+    <h2>Exercise 6: Fixed Semantic Errors</h2>
+
+    <header>
+      <h1>My Blog</h1>
+
+      <nav>
+        <a href="/">Home</a>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+
+        <header>
+          <h2>Semantic HTML</h2>
+        </header>
+
+        <figure>
+          <img src="img.jpg" alt="Semantic HTML illustration">
+          <figcaption>Semantic HTML diagram</figcaption>
+        </figure>
+
+        <footer>
+          <p>Tags: HTML</p>
+        </footer>
+
+      </article>
+
+      <aside>
+        <h2>Topics</h2>
+      </aside>
+    </main>
+  </section>
+
+  <hr>
+
+  <!-- Exercise 7 -->
+  <section id="e7">
+    <h2>Exercise 7: Inspirational Quotes</h2>
+
+    <p>
+      Tim Berners-Lee once said,
+      <q>The Web is for everyone.</q>
+    </p>
+
+    <blockquote>
+      <p>The power of the Web is in its universality.</p>
+      <footer>— <cite>Weaving the Web</cite></footer>
+    </blockquote>
+
+    <blockquote>
+      <p>Programs must be written for people to read.</p>
+      <footer>— <cite>Structure and Interpretation of Computer Programs</cite></footer>
+    </blockquote>
+
+    <details>
+      <summary>About these quotes</summary>
+      <p>
+        These quotes are related to the
+        <abbr title="World Wide Web">WWW</abbr>
+        and computer science.
+      </p>
+    </details>
+  </section>
+
+  <hr>
+
+  <!-- Exercise 8 -->
+  <section id="e8">
+    <h2>Exercise 8: Technology News Article</h2>
+
+    <header>
+      <h1>AI Transforms Modern Web Development</h1>
+
+      <p>
+        <time datetime="2026-09-11">September 11, 2026</time>
+      </p>
+    </header>
+
+    <figure>
+      <img src="https://picsum.photos/700/350?random=20"
+           alt="AI coding illustration"
+           width="700">
+      <figcaption>AI helps developers build modern applications.</figcaption>
+    </figure>
+
+    <section>
+      <h2>Background</h2>
+
+      <p>
+        <mark>Artificial Intelligence</mark>
+        is changing software development worldwide.
+      </p>
+
+      <p>
+        Developers use
+        <abbr title="Large Language Model">LLM</abbr>
+        tools for coding and documentation.
+      </p>
+    </section>
+
+    <section>
+      <h2>Analysis</h2>
+
+      <p>
+        Modern frameworks such as
+        <code>Next.js</code>
+        and semantic HTML improve accessibility and performance.
+      </p>
+    </section>
+
+    <blockquote>
+      <p>The future belongs to developers who keep learning.</p>
+      <footer>— <cite>Technology Weekly</cite></footer>
+    </blockquote>
+
+    <aside>
+      <h2>Key Facts</h2>
+      <ul>
+        <li>AI assists coding.</li>
+        <li>Semantic HTML improves accessibility.</li>
+        <li>LLMs speed up development.</li>
+      </ul>
+    </aside>
+
+    <footer>
+      <p>Tags: AI · Web Development · HTML</p>
+    </footer>
+  </section>
+
+</main>
+
+<footer>
+  <p>End of Exercises</p>
+</footer>
+
+</body>
+</html>
