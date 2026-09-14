@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample 21 - display: flex</title>
+  <style>
+    .flex-row {
+      display: flex;
+      gap: 12px;
+      background: #f8fafc;
+      padding: 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    .flex-row.between { justify-content: space-between; }
+    .item {
+      background: #10B981;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .item.grow { flex: 1; }
+  </style>
+</head>
+<body>
+  <div class="flex-row">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+  </div>
+
+  <div class="flex-row between">
+    <div class="item">Left</div>
+    <div class="item">Right</div>
+  </div>
+
+  <div class="flex-row">
+    <div class="item">Fixed</div>
+    <div class="item grow">flex: 1</div>
+  </div>
+</body>
+</html>

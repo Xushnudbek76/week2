@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample 23 - Which Selector Wins?</title>
+  <style>
+    p { color: gray; }
+    .highlight { color: blue; }
+    p.highlight { color: purple; }
+    #note { color: green; }
+  </style>
+</head>
+<body>
+  <p>Plain paragraph</p>
+  <p class="highlight">Paragraph with class</p>
+  <p class="highlight" id="note">Paragraph with class and id</p>
+</body>
+</html>

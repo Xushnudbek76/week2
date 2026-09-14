@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample 22 - Specificity</title>
+  <style>
+    p { color: gray; }
+    .intro { color: blue; }
+    #main { color: green; }
+    p.intro { color: purple; }
+    #main p { color: orange; }
+  </style>
+</head>
+<body>
+  <p class="intro" id="main">This paragraph is green because the ID selector is most specific.</p>
+</body>
+</html>
