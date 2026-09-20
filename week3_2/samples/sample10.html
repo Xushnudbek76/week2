@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample 10 - Media Queries</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 16px; background: #f0fdfa; }
+    .grid { display: flex; flex-direction: column; gap: 16px; }
+    .card { background: white; border: 2px solid #14b8a6; border-radius: 10px; padding: 20px; }
+    @media (min-width: 640px) {
+      .grid { flex-direction: row; flex-wrap: wrap; }
+      .card { flex: 1 1 200px; }
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #04150e; color: #d4edda; }
+      .card { background: #0b2017; border-color: #14b8a6; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="card">Card 1</div>
+    <div class="card">Card 2</div>
+    <div class="card">Card 3</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample 14 - Inherit</title>
+  <style>
+    body { color: #0f766e; font-family: Georgia, serif; }
+    .parent { color: #f43f5e; font-size: 20px; }
+    .child-inherit { color: inherit; }
+    .child-initial { color: initial; }
+    .parent-border { border: 3px solid #0f766e; padding: 12px; }
+    .inherit-border { border: inherit; }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <p>Parent color is red.</p>
+    <p class="child-inherit">Inherit makes it red too.</p>
+    <p class="child-initial">Initial resets to default black.</p>
+  </div>
+  <div class="parent-border">
+    Parent has a border.
+    <div class="inherit-border">This border inherits from parent.</div>
+  </div>
+</body>
+</html>

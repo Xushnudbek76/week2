@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample 02 - Absolute Position</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #ecfeff; padding: 40px; }
+    .card {
+      position: relative; width: 300px; height: 180px; background: #f0fdfa; border: 2px solid #14b8a6;
+      border-radius: 12px; margin: 30px auto; box-shadow: 0 8px 24px rgba(15,118,110,0.12);
+    }
+    .card h2 { margin: 0; padding: 28px 20px 0; color: #0f766e; }
+    .badge {
+      position: absolute; top: -12px; right: -12px; background: #0f766e; color: white;
+      font-size: 12px; font-weight: bold; padding: 6px 12px; border-radius: 999px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="badge">NEW</span>
+    <h2>Xushnudbek Course</h2>
+  </div>
+</body>
+</html>

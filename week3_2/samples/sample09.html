@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample 09 - CSS Variables</title>
+  <style>
+    :root {
+      --primary: #0f766e;
+      --accent: #14b8a6;
+      --bg: #f0fdfa;
+      --text: #1e293b;
+      --radius: 12px;
+    }
+    body { background: var(--bg); color: var(--text); font-family: Arial, sans-serif; padding: 28px; }
+    .btn { background: var(--primary); color: white; padding: 10px 22px; border: none; border-radius: var(--radius); }
+    .card { margin-top: 18px; background: white; border: 2px solid var(--accent); border-radius: var(--radius); padding: 20px; }
+    .card.danger { --primary: #ef4444; --accent: #f87171; }
+  </style>
+</head>
+<body>
+  <button class="btn">Primary</button>
+  <div class="card">This card uses global CSS variables.</div>
+  <div class="card danger">This one overrides them.</div>
+</body>
+</html>

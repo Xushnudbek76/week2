@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample 07 - Transitions</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f0fdfa; padding: 40px; }
+    .card {
+      width: 220px; padding: 24px; background: #f8fafc; border: 2px solid #14b8a6; border-radius: 12px;
+      color: #0f172a; transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      background: #0f766e; color: white; transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(15,118,110,0.25);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">Hover over this card</div>
+</body>
+</html>

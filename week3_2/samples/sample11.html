@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample 11 - Advanced Flexbox</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 24px; }
+    .card-grid { display: flex; flex-wrap: wrap; gap: 16px; }
+    .card { flex: 1; min-width: 160px; background: #0f766e; color: white; padding: 20px; border-radius: 10px; text-align: center; }
+    .featured { order: -1; flex: 2; background: #14b8a6; }
+    .sidebar-layout { display: flex; gap: 16px; margin-top: 24px; }
+    .sidebar { width: 180px; background: #ccfbf1; padding: 16px; border-radius: 10px; }
+    .main { flex: 1; background: white; border: 2px solid #14b8a6; padding: 16px; border-radius: 10px; }
+  </style>
+</head>
+<body>
+  <div class="card-grid">
+    <div class="card">A</div>
+    <div class="card">B</div>
+    <div class="card featured">Featured</div>
+    <div class="card">C</div>
+    <div class="card">D</div>
+  </div>
+  <div class="sidebar-layout">
+    <aside class="sidebar">Sidebar</aside>
+    <main class="main">Main content area</main>
+  </div>
+</body>
+</html>

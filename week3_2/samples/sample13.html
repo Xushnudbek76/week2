@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample 13 - Border Radius & Box Shadow</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f0fdfa; padding: 30px; }
+    .row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+    .box { background: #0f766e; color: white; padding: 14px 20px; font-weight: bold; }
+    .r-sm { border-radius: 8px; }
+    .r-lg { border-radius: 20px; }
+    .r-pill { border-radius: 999px; }
+    .circle { width: 80px; height: 80px; border-radius: 50%; display: grid; place-items: center; }
+    .s-sm { box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+    .s-md { box-shadow: 0 8px 18px rgba(15,118,110,0.2); }
+    .s-in { box-shadow: inset 0 2px 8px rgba(0,0,0,0.15); background: #ccfbf1; color: #0f766e; }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <div class="box r-sm">Small</div>
+    <div class="box r-lg">Large</div>
+    <div class="box r-pill">Pill</div>
+    <div class="box circle">50%</div>
+  </div>
+  <div class="row">
+    <div class="box r-sm s-sm">Shadow</div>
+    <div class="box r-sm s-md">Medium</div>
+    <div class="box r-sm s-in">Inset</div>
+  </div>
+</body>
+</html>
