@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Week 2 &amp; 3 Homework</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --page: #f4f6f2;
+      --surface: #ffffff;
+      --ink: #19251f;
+      --muted: #627067;
+      --line: #dce4dc;
+      --accent: #176a50;
+      --accent-soft: #e7f2ec;
+      --highlight: #d49b42;
+      --shadow: 0 12px 34px rgb(25 37 31 / 7%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #151b18;
+        --surface: #202925;
+        --ink: #edf3ee;
+        --muted: #a9b7ad;
+        --line: #39463e;
+        --accent: #80c6a5;
+        --accent-soft: #293d33;
+        --highlight: #e5b65f;
+        --shadow: 0 12px 34px rgb(0 0 0 / 20%);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(135deg, transparent 0 74%, rgb(23 106 80 / 4%) 74% 75%, transparent 75%),
+        var(--page);
+      color: var(--ink);
+      font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    main {
+      width: min(100% - 40px, 1040px);
+      margin: 0 auto;
+      padding: 56px 0 72px;
+    }
+
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 32px;
+      padding: 0 4px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 750;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.08;
+    }
+
+    .student {
+      flex: 0 0 auto;
+      padding-left: 20px;
+      border-left: 3px solid var(--highlight);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .student strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    .weeks {
+      display: grid;
+      gap: 20px;
+    }
+
+    .week {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .week-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin: 0;
+      padding: 19px 24px;
+      border-bottom: 1px solid var(--line);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+    }
+
+    .week-heading span {
+      color: var(--accent);
+      font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 750;
+      text-transform: uppercase;
+    }
+
+    .groups {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      padding: 22px 24px 26px;
+    }
+
+    .group h3 {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 750;
+      text-transform: uppercase;
+    }
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 7px 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      display: inline-block;
+      max-width: 100%;
+      color: var(--accent);
+      font-size: 0.9rem;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover { color: var(--highlight); }
+    a:focus-visible { outline: 2px solid var(--highlight); outline-offset: 3px; }
+
+    @media (max-width: 620px) {
+      main { width: min(100% - 24px, 1040px); padding-top: 32px; }
+      .masthead { align-items: flex-start; flex-direction: column; gap: 18px; }
+      .student { padding-left: 12px; }
+      .groups { grid-template-columns: 1fr; gap: 22px; padding: 20px; }
+      .week-heading { padding: 17px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <div>
+        <p class="eyebrow">Coursework index</p>
+        <h1>Week 2 &amp; 3 Homework</h1>
+      </div>
+      <div class="student"><strong>Xushnudbek</strong>Gachon University</div>
+    </header>
+
+    <div class="weeks">
+      <section class="week" aria-labelledby="week2-1-title">
+        <h2 class="week-heading" id="week2-1-title">Week 2 <span>Part 1</span></h2>
+        <div class="groups">
+          <section class="group" aria-labelledby="week2-1-exercises">
+            <h3 id="week2-1-exercises">Exercises</h3>
+            <ul class="links">
+              <li><a href="week2_1/exercises/exer1.html">exer1.html</a></li>
+              <li><a href="week2_1/exercises/exer2.html">exer2.html</a></li>
+              <li><a href="week2_1/exercises/exer3.html">exer3.html</a></li>
+              <li><a href="week2_1/exercises/exer4.html">exer4.html</a></li>
+              <li><a href="week2_1/exercises/exer5.html">exer5.html</a></li>
+              <li><a href="week2_1/exercises/exer6.html">exer6.html</a></li>
+              <li><a href="week2_1/exercises/exer7.html">exer7.html</a></li>
+              <li><a href="week2_1/exercises/exer8.html">exer8.html</a></li>
+            </ul>
+          </section>
+          <section class="group" aria-labelledby="week2-1-samples">
+            <h3 id="week2-1-samples">Samples</h3>
+            <ul class="links">
+              <li><a href="week2_1/samples/sample01.html">sample01.html</a></li>
+              <li><a href="week2_1/samples/sample02.html">sample02.html</a></li>
+              <li><a href="week2_1/samples/sample03.html">sample03.html</a></li>
+              <li><a href="week2_1/samples/sample04.html">sample04.html</a></li>
+              <li><a href="week2_1/samples/sample05.html">sample05.html</a></li>
+              <li><a href="week2_1/samples/sample06.html">sample06.html</a></li>
+              <li><a href="week2_1/samples/sample07.html">sample07.html</a></li>
+              <li><a href="week2_1/samples/sample08.html">sample08.html</a></li>
+              <li><a href="week2_1/samples/sample09.html">sample09.html</a></li>
+              <li><a href="week2_1/samples/sample10.html">sample10.html</a></li>
+              <li><a href="week2_1/samples/sample11.html">sample11.html</a></li>
+              <li><a href="week2_1/samples/sample12.html">sample12.html</a></li>
+              <li><a href="week2_1/samples/sample13.html">sample13.html</a></li>
+              <li><a href="week2_1/samples/sample14.html">sample14.html</a></li>
+              <li><a href="week2_1/samples/sample15.html">sample15.html</a></li>
+              <li><a href="week2_1/samples/sample16.html">sample16.html</a></li>
+              <li><a href="week2_1/samples/sample17.html">sample17.html</a></li>
+              <li><a href="week2_1/samples/sample18.html">sample18.html</a></li>
+              <li><a href="week2_1/samples/sample19.html">sample19.html</a></li>
+              <li><a href="week2_1/samples/sample20.html">sample20.html</a></li>
+              <li><a href="week2_1/samples/sample21.html">sample21.html</a></li>
+              <li><a href="week2_1/samples/sample22.html">sample22.html</a></li>
+              <li><a href="week2_1/samples/sample23.html">sample23.html</a></li>
+              <li><a href="week2_1/samples/sample24.html">sample24.html</a></li>
+              <li><a href="week2_1/samples/sample25.html">sample25.html</a></li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section class="week" aria-labelledby="week2-2-title">
+        <h2 class="week-heading" id="week2-2-title">Week 2 <span>Part 2</span></h2>
+        <div class="groups">
+          <section class="group" aria-labelledby="week2-2-exercises">
+            <h3 id="week2-2-exercises">Exercises</h3>
+            <ul class="links">
+              <li><a href="week2_2/exercises/exer1.html">exer1.html</a></li>
+              <li><a href="week2_2/exercises/exer2.html">exer2.html</a></li>
+              <li><a href="week2_2/exercises/exer3.html">exer3.html</a></li>
+              <li><a href="week2_2/exercises/exer4.html">exer4.html</a></li>
+              <li><a href="week2_2/exercises/exer5.html">exer5.html</a></li>
+              <li><a href="week2_2/exercises/exer6.html">exer6.html</a></li>
+              <li><a href="week2_2/exercises/exer7.html">exer7.html</a></li>
+              <li><a href="week2_2/exercises/exer8.html">exer8.html</a></li>
+            </ul>
+          </section>
+          <section class="group" aria-labelledby="week2-2-samples">
+            <h3 id="week2-2-samples">Samples</h3>
+            <ul class="links">
+              <li><a href="week2_2/samples/sample01.html">sample01.html</a></li>
+              <li><a href="week2_2/samples/sample02.html">sample02.html</a></li>
+              <li><a href="week2_2/samples/sample03.html">sample03.html</a></li>
+              <li><a href="week2_2/samples/sample04.html">sample04.html</a></li>
+              <li><a href="week2_2/samples/sample05.html">sample05.html</a></li>
+              <li><a href="week2_2/samples/sample06.html">sample06.html</a></li>
+              <li><a href="week2_2/samples/sample07.html">sample07.html</a></li>
+              <li><a href="week2_2/samples/sample08.html">sample08.html</a></li>
+              <li><a href="week2_2/samples/sample09.html">sample09.html</a></li>
+              <li><a href="week2_2/samples/sample10.html">sample10.html</a></li>
+              <li><a href="week2_2/samples/sample11.html">sample11.html</a></li>
+              <li><a href="week2_2/samples/sample12.html">sample12.html</a></li>
+              <li><a href="week2_2/samples/sample13.html">sample13.html</a></li>
+              <li><a href="week2_2/samples/sample14.html">sample14.html</a></li>
+              <li><a href="week2_2/samples/sample15.html">sample15.html</a></li>
+              <li><a href="week2_2/samples/sample16.html">sample16.html</a></li>
+              <li><a href="week2_2/samples/sample17.html">sample17.html</a></li>
+              <li><a href="week2_2/samples/sample18.html">sample18.html</a></li>
+              <li><a href="week2_2/samples/sample19.html">sample19.html</a></li>
+              <li><a href="week2_2/samples/sample20.html">sample20.html</a></li>
+              <li><a href="week2_2/samples/sample21.html">sample21.html</a></li>
+              <li><a href="week2_2/samples/sample22.html">sample22.html</a></li>
+              <li><a href="week2_2/samples/sample23.html">sample23.html</a></li>
+              <li><a href="week2_2/samples/sample24.html">sample24.html</a></li>
+              <li><a href="week2_2/samples/sample25.html">sample25.html</a></li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section class="week" aria-labelledby="week3-1-title">
+        <h2 class="week-heading" id="week3-1-title">Week 3 <span>Part 1</span></h2>
+        <div class="groups">
+          <section class="group" aria-labelledby="week3-1-exercises">
+            <h3 id="week3-1-exercises">Exercises</h3>
+            <ul class="links">
+              <li><a href="week3_1/exercises/exer1.html">exer1.html</a></li>
+              <li><a href="week3_1/exercises/exer2.html">exer2.html</a></li>
+              <li><a href="week3_1/exercises/exer3.html">exer3.html</a></li>
+              <li><a href="week3_1/exercises/exer4.html">exer4.html</a></li>
+              <li><a href="week3_1/exercises/exer5.html">exer5.html</a></li>
+              <li><a href="week3_1/exercises/exer6.html">exer6.html</a></li>
+              <li><a href="week3_1/exercises/exer7.html">exer7.html</a></li>
+              <li><a href="week3_1/exercises/exer8.html">exer8.html</a></li>
+            </ul>
+          </section>
+          <section class="group" aria-labelledby="week3-1-samples">
+            <h3 id="week3-1-samples">Samples</h3>
+            <ul class="links">
+              <li><a href="week3_1/samples/sample01.html">sample01.html</a></li>
+              <li><a href="week3_1/samples/sample02.html">sample02.html</a></li>
+              <li><a href="week3_1/samples/sample03.html">sample03.html</a></li>
+              <li><a href="week3_1/samples/sample04.html">sample04.html</a></li>
+              <li><a href="week3_1/samples/sample05.html">sample05.html</a></li>
+              <li><a href="week3_1/samples/sample06.html">sample06.html</a></li>
+              <li><a href="week3_1/samples/sample07.html">sample07.html</a></li>
+              <li><a href="week3_1/samples/sample08.html">sample08.html</a></li>
+              <li><a href="week3_1/samples/sample09.html">sample09.html</a></li>
+              <li><a href="week3_1/samples/sample10.html">sample10.html</a></li>
+              <li><a href="week3_1/samples/sample11.html">sample11.html</a></li>
+              <li><a href="week3_1/samples/sample12.html">sample12.html</a></li>
+              <li><a href="week3_1/samples/sample13.html">sample13.html</a></li>
+              <li><a href="week3_1/samples/sample14.html">sample14.html</a></li>
+              <li><a href="week3_1/samples/sample15.html">sample15.html</a></li>
+              <li><a href="week3_1/samples/sample16.html">sample16.html</a></li>
+              <li><a href="week3_1/samples/sample17.html">sample17.html</a></li>
+              <li><a href="week3_1/samples/sample18.html">sample18.html</a></li>
+              <li><a href="week3_1/samples/sample19.html">sample19.html</a></li>
+              <li><a href="week3_1/samples/sample20.html">sample20.html</a></li>
+              <li><a href="week3_1/samples/sample21.html">sample21.html</a></li>
+              <li><a href="week3_1/samples/sample22.html">sample22.html</a></li>
+              <li><a href="week3_1/samples/sample23.html">sample23.html</a></li>
+              <li><a href="week3_1/samples/sample24.html">sample24.html</a></li>
+              <li><a href="week3_1/samples/sample25.html">sample25.html</a></li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section class="week" aria-labelledby="week3-2-title">
+        <h2 class="week-heading" id="week3-2-title">Week 3 <span>Part 2</span></h2>
+        <div class="groups">
+          <section class="group" aria-labelledby="week3-2-exercises">
+            <h3 id="week3-2-exercises">Exercises</h3>
+            <ul class="links">
+              <li><a href="week3_2/exercises/exer1.html">exer1.html</a></li>
+              <li><a href="week3_2/exercises/exer2.html">exer2.html</a></li>
+              <li><a href="week3_2/exercises/exer3.html">exer3.html</a></li>
+              <li><a href="week3_2/exercises/exer4.html">exer4.html</a></li>
+              <li><a href="week3_2/exercises/exer5.html">exer5.html</a></li>
+              <li><a href="week3_2/exercises/exer6.html">exer6.html</a></li>
+              <li><a href="week3_2/exercises/exer7.html">exer7.html</a></li>
+            </ul>
+          </section>
+          <section class="group" aria-labelledby="week3-2-samples">
+            <h3 id="week3-2-samples">Samples</h3>
+            <ul class="links">
+              <li><a href="week3_2/samples/sample01.html">sample01.html</a></li>
+              <li><a href="week3_2/samples/sample02.html">sample02.html</a></li>
+              <li><a href="week3_2/samples/sample03.html">sample03.html</a></li>
+              <li><a href="week3_2/samples/sample04.html">sample04.html</a></li>
+              <li><a href="week3_2/samples/sample05.html">sample05.html</a></li>
+              <li><a href="week3_2/samples/sample06.html">sample06.html</a></li>
+              <li><a href="week3_2/samples/sample07.html">sample07.html</a></li>
+              <li><a href="week3_2/samples/sample08.html">sample08.html</a></li>
+              <li><a href="week3_2/samples/sample09.html">sample09.html</a></li>
+              <li><a href="week3_2/samples/sample10.html">sample10.html</a></li>
+              <li><a href="week3_2/samples/sample11.html">sample11.html</a></li>
+              <li><a href="week3_2/samples/sample12.html">sample12.html</a></li>
+              <li><a href="week3_2/samples/sample13.html">sample13.html</a></li>
+              <li><a href="week3_2/samples/sample14.html">sample14.html</a></li>
+              <li><a href="week3_2/samples/sample15.html">sample15.html</a></li>
+            </ul>
+          </section>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
