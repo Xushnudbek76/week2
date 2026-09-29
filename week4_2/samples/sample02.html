@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Sample 02 | Select by ID</title><link rel="stylesheet" href="../style.css"></head>
+<body><main><a class="back" href="../index.html">Back to Week 4</a><p class="eyebrow">Sample 02 · Select elements</p><h1>getElementById()</h1><p class="lede">An ID should be unique in the document. The method returns that element, or null when it cannot find a match.</p>
+<section class="panel"><p id="greeting">I am the element with id="greeting".</p><div class="controls"><button id="change-text" type="button">Change text</button><button id="change-color" class="secondary" type="button">Change color</button><button id="reset" class="secondary" type="button">Reset</button></div><p id="status" class="output" aria-live="polite">Choose an action.</p></section>
+<script>
+const greeting = document.getElementById('greeting');
+document.getElementById('change-text').addEventListener('click', () => {
+  greeting.textContent = 'The selected DOM element has new text.';
+  document.getElementById('status').textContent = 'Updated with getElementById("greeting").';
+});
+document.getElementById('change-color').addEventListener('click', () => {
+  greeting.style.color = '#087f70';
+  document.getElementById('status').textContent = 'Changed the selected element style.';
+});
+document.getElementById('reset').addEventListener('click', () => {
+  greeting.textContent = 'I am the element with id="greeting".';
+  greeting.removeAttribute('style');
+  document.getElementById('status').textContent = 'Reset.';
+});
+</script></main></body></html>

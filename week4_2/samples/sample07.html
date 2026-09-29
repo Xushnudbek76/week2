@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Sample 07 | addEventListener</title><link rel="stylesheet" href="../style.css"></head>
+<body><main><a class="back" href="../index.html">Back to Week 4</a><p class="eyebrow">Sample 07 · Events</p><h1>addEventListener()</h1><p class="lede">Attach a callback to an element for events such as click or input.</p>
+<section class="panel"><button id="counter" type="button">Click me</button><p class="output">Click count: <strong id="count">0</strong></p><label for="live-input">Live input</label><div class="controls"><input id="live-input" placeholder="Type something"></div><p id="echo" class="output" aria-live="polite">Your text will appear here.</p></section>
+<script>
+let count = 0;
+document.querySelector('#counter').addEventListener('click', () => {
+  count += 1;
+  document.querySelector('#count').textContent = count;
+});
+document.querySelector('#live-input').addEventListener('input', (event) => {
+  document.querySelector('#echo').textContent = `Input value: ${event.target.value}`;
+});
+</script></main></body></html>

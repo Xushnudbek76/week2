@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Sample 10 | Delegation</title><link rel="stylesheet" href="../style.css"></head>
+<body><main><a class="back" href="../index.html">Back to Week 4</a><p class="eyebrow">Sample 10 · Events</p><h1>Bubbling and Delegation</h1><p class="lede">A click bubbles from the target toward its ancestors. One listener on the list can handle clicks on current and future delete buttons.</p>
+<section class="panel"><button id="add" type="button">Add a row</button><ul id="items" class="list"><li><span>Example row</span><button type="button" class="delete">Remove</button></li></ul><p id="log" class="output" aria-live="polite">Click a row or its remove button.</p></section>
+<script>
+const list = document.querySelector('#items');
+const log = document.querySelector('#log');
+document.querySelector('#add').addEventListener('click', () => {
+  const item = document.createElement('li');
+  const label = document.createElement('span');
+  label.textContent = `New row ${list.children.length + 1}`;
+  const remove = document.createElement('button');
+  remove.type = 'button';
+  remove.className = 'delete';
+  remove.textContent = 'Remove';
+  item.append(label, remove);
+  list.append(item);
+});
+list.addEventListener('click', (event) => {
+  log.textContent = `Target: ${event.target.tagName.toLowerCase()} · listener: #items`;
+  if (event.target.matches('.delete')) event.target.closest('li').remove();
+});
+</script></main></body></html>

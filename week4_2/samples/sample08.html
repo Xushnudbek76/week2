@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Sample 08 | Event Object</title><link rel="stylesheet" href="../style.css"></head>
+<body><main><a class="back" href="../index.html">Back to Week 4</a><p class="eyebrow">Sample 08 · Events</p><h1>The Event Object</h1><p class="lede">The browser passes event details to your callback. Inspect the event type, target element, or pressed key.</p>
+<section class="panel"><div class="controls"><button id="alpha" type="button">Button A</button><button id="beta" class="secondary" type="button">Button B</button></div><label for="key-input">Press a key in this input</label><div class="controls"><input id="key-input" autocomplete="off" placeholder="Try Enter or an arrow key"></div><h2>Event log</h2><ol id="log" class="list" aria-live="polite"><li>Interact with the controls above.</li></ol></section>
+<script>
+const log = document.querySelector('#log');
+const record = (message) => {
+  const item = document.createElement('li');
+  item.textContent = message;
+  log.prepend(item);
+  while (log.children.length > 5) log.lastElementChild.remove();
+};
+document.querySelectorAll('button').forEach((button) => button.addEventListener('click', (event) => {
+  record(`${event.type}: #${event.target.id} was clicked`);
+}));
+document.querySelector('#key-input').addEventListener('keydown', (event) => {
+  record(`${event.type}: key "${event.key}"`);
+});
+</script></main></body></html>

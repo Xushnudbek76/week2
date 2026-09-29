@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Sample 05 | innerHTML Safety</title><link rel="stylesheet" href="../style.css"></head>
+<body><main><a class="back" href="../index.html">Back to Week 4</a><p class="eyebrow">Sample 05 · Changing content</p><h1>innerHTML: Power and Caution</h1><p class="lede">innerHTML parses markup. Use it for trusted, developer-authored HTML; display user-provided text with textContent instead.</p>
+<section class="panel"><h2>Trusted markup</h2><div id="trusted" class="demo-box">Original content</div><button id="markup" type="button">Render trusted markup</button></section>
+<section class="panel"><h2>User text</h2><label for="user-text">Try angle brackets or HTML-like text</label><div class="controls"><input id="user-text" value="&lt;strong&gt;not markup&lt;/strong&gt;"><button id="safe" type="button">Show as safe text</button></div><p id="safe-output" class="demo-box" aria-live="polite">Input appears here as plain text.</p></section>
+<script>
+document.querySelector('#markup').addEventListener('click', () => {
+  document.querySelector('#trusted').innerHTML = '<strong>Bold</strong> and <em>italic</em> (trusted content).';
+});
+document.querySelector('#safe').addEventListener('click', () => {
+  document.querySelector('#safe-output').textContent = document.querySelector('#user-text').value;
+});
+</script></main></body></html>

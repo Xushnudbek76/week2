@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Sample 03 | CSS Selectors</title><link rel="stylesheet" href="../style.css"></head>
+<body><main><a class="back" href="../index.html">Back to Week 4</a><p class="eyebrow">Sample 03 · Select elements</p><h1>querySelector()</h1><p class="lede">Use familiar CSS selector syntax. querySelector finds the first match; querySelectorAll returns every match.</p>
+<section class="panel"><p class="pick">First paragraph</p><p class="pick">Second paragraph</p><p class="pick">Third paragraph</p><div class="controls"><button id="first" type="button">Select first</button><button id="all" type="button">Select all</button></div><p id="result" class="output" aria-live="polite">No selection yet.</p></section>
+<script>
+document.querySelector('#first').addEventListener('click', () => {
+  document.querySelectorAll('.pick').forEach((item) => item.classList.remove('highlight'));
+  const first = document.querySelector('.pick');
+  first.classList.add('highlight');
+  document.querySelector('#result').textContent = `First match: ${first.textContent}`;
+});
+document.querySelector('#all').addEventListener('click', () => {
+  const paragraphs = document.querySelectorAll('.pick');
+  paragraphs.forEach((item) => item.classList.add('highlight'));
+  document.querySelector('#result').textContent = `querySelectorAll found ${paragraphs.length} paragraphs.`;
+});
+</script></main></body></html>

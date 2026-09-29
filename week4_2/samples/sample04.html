@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Sample 04 | textContent</title><link rel="stylesheet" href="../style.css"></head>
+<body><main><a class="back" href="../index.html">Back to Week 4</a><p class="eyebrow">Sample 04 · Changing content</p><h1>textContent</h1><p class="lede">Read or replace an element's plain text. Strings that look like HTML remain text, which makes this a safe choice for user input.</p>
+<section class="panel"><label for="new-text">Text to display</label><div class="controls"><input id="new-text" value="Welcome to Web Programming!"><button id="apply" type="button">Update text</button></div><p id="display" class="demo-box">Hello, class!</p><p class="muted">Try entering <code>&lt;b&gt;bold?&lt;/b&gt;</code>: the tags will appear literally.</p></section>
+<script>
+document.querySelector('#apply').addEventListener('click', () => {
+  document.querySelector('#display').textContent = document.querySelector('#new-text').value;
+});
+</script></main></body></html>

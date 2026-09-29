@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Sample 12 | Remove Elements</title><link rel="stylesheet" href="../style.css"></head>
+<body><main><a class="back" href="../index.html">Back to Week 4</a><p class="eyebrow">Sample 12 · Dynamic DOM</p><h1>Remove Elements</h1><p class="lede">Use remove() to detach a node. A delegated listener lets each remove button work without its own listener.</p>
+<section class="panel"><ul id="items" class="list"><li><span>Item One</span><button class="remove" type="button">Remove</button></li><li><span>Item Two</span><button class="remove" type="button">Remove</button></li><li><span>Item Three</span><button class="remove" type="button">Remove</button></li></ul><div class="controls"><button id="restore" class="secondary" type="button">Restore items</button></div></section>
+<script>
+const list = document.querySelector('#items');
+const original = ['Item One', 'Item Two', 'Item Three'];
+list.addEventListener('click', (event) => {
+  if (event.target.matches('.remove')) event.target.closest('li').remove();
+});
+document.querySelector('#restore').addEventListener('click', () => {
+  list.replaceChildren();
+  original.forEach((text) => {
+    const item = document.createElement('li');
+    const label = document.createElement('span');
+    label.textContent = text;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'remove';
+    button.textContent = 'Remove';
+    item.append(label, button);
+    list.append(item);
+  });
+});
+</script></main></body></html>

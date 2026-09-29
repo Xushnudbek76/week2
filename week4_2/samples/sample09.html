@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Sample 09 | preventDefault</title><link rel="stylesheet" href="../style.css"></head>
+<body><main><a class="back" href="../index.html">Back to Week 4</a><p class="eyebrow">Sample 09 · Events</p><h1>preventDefault()</h1><p class="lede">Stop a form's default navigation so JavaScript can validate and handle its submission.</p>
+<section class="panel"><form id="email-form"><label for="email">Email address</label><div class="controls"><input id="email" type="text" placeholder="name@example.com" required><button type="submit">Check email</button></div></form><p id="result" class="output" aria-live="polite">Submit to validate without reloading.</p></section>
+<script>
+document.querySelector('#email-form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  const email = document.querySelector('#email').value.trim();
+  document.querySelector('#result').textContent = email.includes('@') ? `Looks valid: ${email}` : 'Please include an @ in the email address.';
+});
+</script></main></body></html>
