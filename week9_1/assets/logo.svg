@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 110">
+  <rect width="180" height="110" rx="18" fill="#202b1b"/>
+  <path d="M42 54 60 32l18 22-18 24Z" fill="#c7f36b"/>
+  <circle cx="60" cy="54" r="8" fill="#11141d"/>
+  <text x="91" y="52" fill="#f2f4f8" font-family="Arial,sans-serif" font-size="15" font-weight="700">WEEK 09</text>
+  <text x="91" y="72" fill="#a0a8b8" font-family="Arial,sans-serif" font-size="9">ACCESS FOR EVERYONE</text>
+</svg>

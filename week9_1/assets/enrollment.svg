@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300">
+  <rect width="640" height="300" rx="14" fill="#11141d"/>
+  <path d="M82 220h493M82 170h493M82 120h493M82 70h493" fill="none" stroke="#292e3d" stroke-width="2"/>
+  <path d="M120 226V155h90v71zm150 0V117h90v109zm150 0V88h90v138z" fill="#c7f36b" rx="8"/>
+  <path d="m165 143 150-39 150-28" fill="none" stroke="#bb9cff" stroke-linecap="round" stroke-width="4" stroke-dasharray="1 9"/>
+  <g fill="#bb9cff">
+    <circle cx="165" cy="143" r="7"/><circle cx="315" cy="104" r="7"/><circle cx="465" cy="76" r="7"/>
+  </g>
+  <g fill="#a0a8b8" font-family="Arial,sans-serif" font-size="17" text-anchor="middle">
+    <text x="165" y="257">2024</text><text x="315" y="257">2025</text><text x="465" y="257">2026</text>
+  </g>
+  <g fill="#f2f4f8" font-family="Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle">
+    <text x="165" y="137">1,200</text><text x="315" y="99">1,400</text><text x="465" y="71">1,476</text>
+  </g>
+</svg>
