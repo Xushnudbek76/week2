@@ -3,228 +3,646 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <title>Weekly Homework</title>
+  <meta name="theme-color" content="#f8f8ff">
+  <meta name="description" content="A colorful home for Xushnudbek's weekly web development coursework at Gachon University.">
+  <title>Weekly Homework — Xushnudbek</title>
   <style>
     :root {
-      color-scheme: light dark;
-      --page: #f4f6f2;
-      --surface: #ffffff;
-      --ink: #19251f;
-      --muted: #627067;
-      --line: #dce4dc;
-      --accent: #176a50;
-      --accent-soft: #e7f2ec;
-      --highlight: #d49b42;
-      --shadow: 0 12px 34px rgb(25 37 31 / 7%);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --page: #151b18;
-        --surface: #202925;
-        --ink: #edf3ee;
-        --muted: #a9b7ad;
-        --line: #39463e;
-        --accent: #80c6a5;
-        --accent-soft: #293d33;
-        --highlight: #e5b65f;
-        --shadow: 0 12px 34px rgb(0 0 0 / 20%);
-      }
+      color-scheme: light;
+      --ink: #20233b;
+      --muted: #777b96;
+      --paper: #f8f8ff;
+      --white: #fff;
+      --purple: #7658e8;
+      --line: #ecebfa;
+      --shadow: 0 18px 55px rgb(51 45 102 / 9%);
     }
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
+      min-width: 320px;
       margin: 0;
-      background:
-        linear-gradient(135deg, transparent 0 74%, rgb(23 106 80 / 4%) 74% 75%, transparent 75%),
-        var(--page);
       color: var(--ink);
+      background:
+        radial-gradient(ellipse at 85% 4%, rgb(204 193 255 / 27%), transparent 25rem),
+        radial-gradient(ellipse at 4% 29%, rgb(255 221 213 / 26%), transparent 22rem),
+        var(--paper);
       font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
       line-height: 1.55;
     }
 
-    main {
-      width: min(100% - 40px, 1040px);
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid #f6a83a; outline-offset: 4px; }
+
+    .page {
+      width: min(1120px, calc(100% - 48px));
       margin: 0 auto;
-      padding: 56px 0 72px;
+      padding: 28px 0 70px;
     }
 
-    .masthead {
+    .topbar {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: flex-end;
-      gap: 24px;
-      margin-bottom: 32px;
-      padding: 0 4px 24px;
-      border-bottom: 1px solid var(--line);
+      min-height: 44px;
+      margin-bottom: 48px;
     }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 35px;
+      height: 35px;
+      place-items: center;
+      border-radius: 12px;
+      color: white;
+      background: linear-gradient(145deg, #9a7aff, #6347d9);
+      box-shadow: 0 7px 16px rgb(118 88 232 / 25%);
+      font-size: 1.1rem;
+    }
+
+    .top-note {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 650;
+    }
+
+    .top-note::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #64c99a;
+      box-shadow: 0 0 0 4px rgb(100 201 154 / 15%);
+      content: "";
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+      align-items: center;
+      gap: 28px;
+      min-height: 420px;
+      margin-bottom: 66px;
+    }
+
+    .hero-copy { position: relative; z-index: 1; padding: 12px 0 24px; }
 
     .eyebrow {
-      margin: 0 0 8px;
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 750;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 20px;
+      padding: 7px 12px;
+      border: 1px solid #e8e2ff;
+      border-radius: 999px;
+      color: #684bd5;
+      background: rgb(255 255 255 / 76%);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     h1 {
+      max-width: 590px;
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 500;
-      line-height: 1.08;
+      font-size: clamp(3rem, 6.3vw, 5.2rem);
+      font-weight: 850;
+      letter-spacing: -0.075em;
+      line-height: 0.99;
     }
+
+    h1 span {
+      color: var(--purple);
+      background: linear-gradient(100deg, #7658e8 12%, #ed78a5 78%);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .intro {
+      max-width: 445px;
+      margin: 22px 0 26px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+
+    .primary-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      color: white;
+      background: linear-gradient(135deg, #8064ed, #6848dc);
+      box-shadow: 0 9px 20px rgb(118 88 232 / 23%);
+      font-size: 0.9rem;
+      font-weight: 750;
+      text-decoration: none;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .primary-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 13px 24px rgb(118 88 232 / 30%);
+    }
+
+    .primary-link span { font-size: 1.15rem; }
 
     .student {
-      flex: 0 0 auto;
-      padding-left: 20px;
-      border-left: 3px solid var(--highlight);
+      display: grid;
+      gap: 2px;
+      padding-left: 15px;
+      border-left: 2px solid #e6e3f5;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.76rem;
+      line-height: 1.4;
     }
 
-    .student strong {
+    .student strong { color: var(--ink); font-size: 0.88rem; }
+
+    .scene {
+      position: relative;
+      display: grid;
+      min-height: 390px;
+      place-items: center;
+      perspective: 1000px;
+      isolation: isolate;
+    }
+
+    .scene::before {
+      position: absolute;
+      width: min(390px, 85%);
+      aspect-ratio: 1;
+      border: 1px solid rgb(118 88 232 / 9%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgb(225 217 255 / 73%) 0, rgb(250 242 255 / 48%) 49%, transparent 70%);
+      content: "";
+      z-index: -1;
+    }
+
+    .orbit {
+      position: absolute;
+      width: 330px;
+      height: 195px;
+      border: 1px solid rgb(133 112 225 / 24%);
+      border-radius: 50%;
+      transform: rotate(-24deg) rotateX(68deg);
+    }
+
+    .orbit::after {
+      position: absolute;
+      top: 21px;
+      right: 33px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ff9a79;
+      box-shadow: 0 0 0 6px rgb(255 154 121 / 17%);
+      content: "";
+    }
+
+    .dashboard {
+      position: relative;
+      width: min(340px, 78%);
+      padding: 20px;
+      border: 1px solid rgb(255 255 255 / 90%);
+      border-radius: 23px;
+      background: rgb(255 255 255 / 88%);
+      box-shadow: 0 28px 65px rgb(66 53 130 / 17%), inset 0 1px white;
+      transform: rotateY(-12deg) rotateX(5deg) rotateZ(2deg);
+      transform-style: preserve-3d;
+      transition: transform 350ms ease;
+    }
+
+    .scene:hover .dashboard { transform: rotateY(-5deg) rotateX(1deg) rotateZ(0); }
+
+    .dash-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .dash-dots { display: flex; gap: 5px; }
+    .dash-dots i { width: 7px; height: 7px; border-radius: 50%; background: #ffc276; }
+    .dash-dots i:nth-child(2) { background: #ff92a7; }
+    .dash-dots i:nth-child(3) { background: #81d8b2; }
+
+    .dash-title { margin: 0 0 4px; font-size: 1.28rem; font-weight: 800; letter-spacing: -0.05em; }
+    .dash-subtitle { margin: 0 0 17px; color: var(--muted); font-size: 0.74rem; }
+
+    .progress-row {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 12px;
+      border: 1px solid #f0eef9;
+      border-radius: 14px;
+      background: #fcfbff;
+    }
+
+    .progress-icon {
+      display: grid;
+      width: 39px;
+      height: 39px;
+      flex: 0 0 auto;
+      place-items: center;
+      border-radius: 12px;
+      background: #f0eaff;
+      font-size: 1.15rem;
+    }
+
+    .progress-info { flex: 1; min-width: 0; }
+    .progress-info strong { display: block; font-size: 0.75rem; }
+    .progress-info small { color: var(--muted); font-size: 0.65rem; }
+
+    .progress-bar {
+      height: 5px;
+      margin-top: 7px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #eeecf5;
+    }
+
+    .progress-bar span {
       display: block;
-      color: var(--ink);
-      font-size: 1rem;
+      width: 72%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #8870f0, #ee82ac);
+    }
+
+    .dash-bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.67rem;
+    }
+
+    .dash-bottom strong { color: #6b50d7; }
+
+    .float-shape {
+      position: absolute;
+      z-index: 2;
+      box-shadow: 0 17px 28px rgb(55 47 103 / 15%);
+      animation: bob 5s ease-in-out infinite;
+    }
+
+    .shape-sphere {
+      top: 54px;
+      right: 35px;
+      width: 74px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 25%, #fff8f1 0 5%, #ffbd8b 22%, #f47e87 63%, #c35196 100%);
+      box-shadow: inset -9px -10px 18px rgb(120 44 108 / 26%), 0 17px 28px rgb(55 47 103 / 15%);
+      transform: translateZ(55px);
+    }
+
+    .shape-cube {
+      bottom: 60px;
+      left: 32px;
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgb(255 255 255 / 55%);
+      border-radius: 13px;
+      background: linear-gradient(140deg, #87dcbd, #41b99c);
+      box-shadow: inset -9px -9px 17px rgb(27 128 111 / 20%), 0 17px 28px rgb(55 47 103 / 15%);
+      transform: rotate(18deg) rotateY(34deg) translateZ(35px);
+      animation-delay: -2s;
+    }
+
+    .shape-star {
+      top: 102px;
+      left: 32px;
+      color: #f2b94f;
+      font-size: 2rem;
+      text-shadow: 0 7px 14px rgb(223 157 39 / 22%);
+      transform: translateZ(60px);
+      animation-delay: -1s;
+    }
+
+    @keyframes bob {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -12px; }
+    }
+
+    .work {
+      scroll-margin-top: 24px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 21px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(1.65rem, 3vw, 2.15rem);
+      font-weight: 820;
+      letter-spacing: -0.055em;
+    }
+
+    .section-heading p { margin: 4px 0 0; color: var(--muted); font-size: 0.86rem; }
+
+    .count {
+      padding: 6px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #7164b7;
+      background: rgb(255 255 255 / 70%);
+      font-size: 0.75rem;
+      font-weight: 750;
+      white-space: nowrap;
     }
 
     .weeks {
       display: grid;
-      gap: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
 
     .week {
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .week-heading {
+      --card-accent: #8268e8;
+      --card-tint: #f1edff;
+      position: relative;
       display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin: 0;
-      padding: 19px 24px;
-      border-bottom: 1px solid var(--line);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.45rem;
-      font-weight: 500;
-    }
-
-    .week-heading a {
-      color: inherit;
+      min-height: 157px;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 19px;
+      border: 1px solid rgb(232 230 246 / 85%);
+      border-radius: 19px;
+      background: rgb(255 255 255 / 87%);
+      box-shadow: 0 7px 22px rgb(57 50 99 / 4%);
       text-decoration: none;
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
     }
 
-    .week-heading a:hover { color: var(--accent); }
+    .week::after {
+      position: absolute;
+      top: -34px;
+      right: -28px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--card-tint);
+      content: "";
+      transition: transform 250ms ease;
+    }
 
-    .week-heading span {
-      color: var(--accent);
-      font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
-      font-size: 0.72rem;
-      font-weight: 750;
+    .week:hover {
+      z-index: 1;
+      transform: translateY(-5px) rotateX(2deg);
+      border-color: color-mix(in srgb, var(--card-accent), white 72%);
+      box-shadow: 0 16px 30px rgb(57 50 99 / 10%);
+    }
+
+    .week:hover::after { transform: scale(1.2); }
+
+    .week:nth-child(3n + 2) { --card-accent: #e38462; --card-tint: #fff0e8; }
+    .week:nth-child(3n) { --card-accent: #35a98c; --card-tint: #e6f8f1; }
+    .week:nth-child(4n) { --card-accent: #538bd8; --card-tint: #eaf3ff; }
+    .week:nth-child(5n) { --card-accent: #d65d92; --card-tint: #ffedf5; }
+
+    .week-top, .week-bottom { position: relative; z-index: 1; }
+    .week-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+
+    .week-number {
+      color: var(--card-accent);
+      font-size: 0.71rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .groups {
+    .week-icon {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-      padding: 22px 24px 26px;
+      width: 35px;
+      height: 35px;
+      place-items: center;
+      border-radius: 11px;
+      color: var(--card-accent);
+      background: var(--card-tint);
+      font-size: 1rem;
     }
 
-    .group h3 {
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 750;
-      text-transform: uppercase;
+    .week h3 {
+      margin: 10px 0 2px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.035em;
     }
 
-    .links {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: 7px 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
+    .week p { margin: 0; color: var(--muted); font-size: 0.76rem; }
+
+    .week-arrow {
+      position: absolute;
+      right: 19px;
+      bottom: 19px;
+      z-index: 1;
+      color: var(--card-accent);
+      font-size: 1.1rem;
+      transition: transform 180ms ease;
     }
 
-    a {
-      display: inline-block;
-      max-width: 100%;
-      color: var(--accent);
-      font-size: 0.9rem;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-      overflow-wrap: anywhere;
+    .week:hover .week-arrow { transform: translateX(4px); }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 34px;
+      padding-top: 19px;
+      border-top: 1px solid #eae9f5;
+      color: #9092a7;
+      font-size: 0.74rem;
     }
 
-    a:hover { color: var(--highlight); }
-    a:focus-visible { outline: 2px solid var(--highlight); outline-offset: 3px; }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr 0.9fr; gap: 8px; min-height: 360px; }
+      .scene { min-height: 330px; }
+      .dashboard { width: 85%; padding: 16px; }
+      .orbit { width: 270px; }
+      .weeks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
 
-    @media (max-width: 620px) {
-      main { width: min(100% - 24px, 1040px); padding-top: 32px; }
-      .masthead { align-items: flex-start; flex-direction: column; gap: 18px; }
-      .student { padding-left: 12px; }
-      .groups { grid-template-columns: 1fr; gap: 22px; padding: 20px; }
-      .week-heading { padding: 17px 20px; }
+    @media (max-width: 600px) {
+      .page { width: min(100% - 32px, 460px); padding-top: 18px; }
+      .topbar { margin-bottom: 22px; }
+      .top-note { font-size: 0.72rem; }
+      .hero { grid-template-columns: 1fr; gap: 0; margin-bottom: 38px; }
+      .hero-copy { padding: 18px 0 0; }
+      h1 { font-size: clamp(3.2rem, 15vw, 4.5rem); }
+      .intro { margin: 17px 0 20px; font-size: 0.94rem; }
+      .scene { min-height: 315px; margin-top: 2px; }
+      .dashboard { width: min(310px, 78%); }
+      .shape-sphere { right: 10%; }
+      .shape-star { left: 8%; }
+      .shape-cube { left: 9%; }
+      .section-heading { align-items: flex-start; }
+      .weeks { gap: 11px; }
+      .week { min-height: 147px; padding: 15px; border-radius: 16px; }
+      .week-arrow { right: 15px; bottom: 15px; }
+    }
+
+    @media (max-width: 380px) {
+      .weeks { grid-template-columns: 1fr; }
+      .week { min-height: 136px; }
+      .student { font-size: 0.7rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
 <body>
-  <main>
-    <header class="masthead">
-      <div>
-        <p class="eyebrow">Coursework index</p>
-        <h1>Weekly Homework</h1>
-      </div>
-      <div class="student"><strong>Xushnudbek</strong>Teacher Assistant<br>202537260<br>Gachon University</div>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Weekly Homework home">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>my learning space</span>
+      </a>
+      <span class="top-note">A semester of making</span>
     </header>
 
-    <div class="weeks">
-      <section class="week">
-        <h2 class="week-heading"><a href="week2_1/">Week 2 - Part 1</a></h2>
-      </section>
-      <section class="week">
-        <h2 class="week-heading"><a href="week2_2/">Week 2 - Part 2</a></h2>
-      </section>
-      <section class="week">
-        <h2 class="week-heading"><a href="week3_1/">Week 3 - Part 1</a></h2>
-      </section>
-      <section class="week">
-        <h2 class="week-heading"><a href="week3_2/">Week 3 - Part 2</a></h2>
-      </section>
-      <section class="week">
-        <h2 class="week-heading"><a href="week4_2/">Week 4 - Part 2</a></h2>
-      </section>
-      <section class="week">
-        <h2 class="week-heading"><a href="week5_1/">Week 5 <span>JavaScript basics</span></a></h2>
-      </section>
-      <section class="week">
-        <h2 class="week-heading"><a href="week6_2/">Week 6 - Part 2 <span>Working with APIs</span></a></h2>
-      </section>
-      <section class="week">
-        <h2 class="week-heading"><a href="week7_1/">Week 7 <span>Book Finder</span></a></h2>
-      </section>
-      <section class="week">
-        <h2 class="week-heading"><a href="week8_1/">Week 8 <span>Form Studio</span></a></h2>
-      </section>
-      <section class="week">
-        <h2 class="week-heading"><a href="week9_1/">Week 9 - Part 1 <span>Accessibility labs</span></a></h2>
-      </section>
-      <section class="week">
-        <h2 class="week-heading"><a href="week9_2/">Week 9 - Part 2 <span>Accessibility audit</span></a></h2>
-      </section>
-      <section class="week">
-        <h2 class="week-heading"><a href="week10_1/">Week 10 <span>Git, GitHub &amp; deployment</span></a></h2>
-      </section>
-    </div>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span aria-hidden="true">✳</span> Coursework index</p>
+        <h1 id="page-title">Ideas into<br><span>websites.</span></h1>
+        <p class="intro">A little home for everything I’ve been learning, building, and experimenting with this semester.</p>
+        <div class="hero-actions">
+          <a class="primary-link" href="#coursework">Explore coursework <span aria-hidden="true">↘</span></a>
+          <div class="student">
+            <strong>Xushnudbek</strong>
+            <span>Teacher Assistant · 202537260</span>
+            <span>Gachon University</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene" role="img" aria-label="Colorful 3D illustration of a coursework dashboard">
+        <div class="orbit" aria-hidden="true"></div>
+        <span class="float-shape shape-star" aria-hidden="true">✦</span>
+        <span class="float-shape shape-sphere" aria-hidden="true"></span>
+        <span class="float-shape shape-cube" aria-hidden="true"></span>
+        <div class="dashboard">
+          <div class="dash-top">
+            <span class="dash-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span>MY WORKSPACE</span>
+          </div>
+          <p class="dash-title">Keep exploring ✨</p>
+          <p class="dash-subtitle">One week, one new thing to learn.</p>
+          <div class="progress-row">
+            <span class="progress-icon" aria-hidden="true">🎨</span>
+            <div class="progress-info">
+              <strong>Creative progress</strong>
+              <small>Curiosity looks good on you</small>
+              <div class="progress-bar" aria-hidden="true"><span></span></div>
+            </div>
+          </div>
+          <div class="dash-bottom"><span>Little steps add up</span><strong>✦ Keep going</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work" id="coursework" aria-labelledby="coursework-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="coursework-title">The coursework</h2>
+          <p>Pick a week and take a look around.</p>
+        </div>
+        <span class="count">12 collections</span>
+      </div>
+
+      <div class="weeks">
+        <a class="week" href="week2_1/">
+          <div class="week-top"><span class="week-number">Week 02 · Part 1</span><span class="week-icon" aria-hidden="true">🧩</span></div>
+          <div class="week-bottom"><h3>Getting started</h3><p>Exercises &amp; examples</p></div><span class="week-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="week" href="week2_2/">
+          <div class="week-top"><span class="week-number">Week 02 · Part 2</span><span class="week-icon" aria-hidden="true">🌱</span></div>
+          <div class="week-bottom"><h3>Building blocks</h3><p>Exercises &amp; examples</p></div><span class="week-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="week" href="week3_1/">
+          <div class="week-top"><span class="week-number">Week 03 · Part 1</span><span class="week-icon" aria-hidden="true">✏️</span></div>
+          <div class="week-bottom"><h3>Web foundations</h3><p>Exercises &amp; examples</p></div><span class="week-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="week" href="week3_2/">
+          <div class="week-top"><span class="week-number">Week 03 · Part 2</span><span class="week-icon" aria-hidden="true">📐</span></div>
+          <div class="week-bottom"><h3>Layout lab</h3><p>Exercises &amp; examples</p></div><span class="week-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="week" href="week4_2/">
+          <div class="week-top"><span class="week-number">Week 04 · Part 2</span><span class="week-icon" aria-hidden="true">🪄</span></div>
+          <div class="week-bottom"><h3>Design practice</h3><p>Exercises &amp; examples</p></div><span class="week-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="week" href="week5_1/">
+          <div class="week-top"><span class="week-number">Week 05</span><span class="week-icon" aria-hidden="true">⚡</span></div>
+          <div class="week-bottom"><h3>JavaScript basics</h3><p>First steps with code</p></div><span class="week-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="week" href="week6_2/">
+          <div class="week-top"><span class="week-number">Week 06 · Part 2</span><span class="week-icon" aria-hidden="true">🌐</span></div>
+          <div class="week-bottom"><h3>Working with APIs</h3><p>Bringing data to the page</p></div><span class="week-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="week" href="week7_1/">
+          <div class="week-top"><span class="week-number">Week 07</span><span class="week-icon" aria-hidden="true">📚</span></div>
+          <div class="week-bottom"><h3>Book Finder</h3><p>Search, discover, repeat</p></div><span class="week-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="week" href="week8_1/">
+          <div class="week-top"><span class="week-number">Week 08</span><span class="week-icon" aria-hidden="true">💌</span></div>
+          <div class="week-bottom"><h3>Form Studio</h3><p>Thoughtful forms in action</p></div><span class="week-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="week" href="week9_1/">
+          <div class="week-top"><span class="week-number">Week 09 · Part 1</span><span class="week-icon" aria-hidden="true">♿</span></div>
+          <div class="week-bottom"><h3>Accessibility labs</h3><p>Designing for everyone</p></div><span class="week-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="week" href="week9_2/">
+          <div class="week-top"><span class="week-number">Week 09 · Part 2</span><span class="week-icon" aria-hidden="true">🔎</span></div>
+          <div class="week-bottom"><h3>Accessibility audit</h3><p>Making the web work for all</p></div><span class="week-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="week" href="week10_1/">
+          <div class="week-top"><span class="week-number">Week 10</span><span class="week-icon" aria-hidden="true">🚀</span></div>
+          <div class="week-bottom"><h3>Git, GitHub &amp; deployment</h3><p>Sharing work with the world</p></div><span class="week-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <span>Made with curiosity ✦</span>
+      <span>Gachon University · Web coursework</span>
+    </footer>
   </main>
 </body>
 </html>
