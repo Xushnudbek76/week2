@@ -1,13 +1,13 @@
 :root {
   color-scheme: light;
-  --paper: #f5f4ef;
-  --surface: #fbfaf6;
-  --ink: #1d211d;
-  --muted: #6d726b;
-  --line: #dedfd7;
-  --green: #537365;
-  --sans: "Avenir Next", Avenir, "Segoe UI", sans-serif;
-  --display: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  --paper: #fff;
+  --surface: #f7f8f6;
+  --ink: #242724;
+  --muted: #626862;
+  --line: #e2e5e1;
+  --green: #426650;
+  --sans: Arial, Helvetica, sans-serif;
+  --display: Arial, Helvetica, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -87,29 +87,17 @@ h1 span { color: var(--green); }
 h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; letter-spacing: -.065em; line-height: 1.1; }
 .section-heading h2 { max-width: 620px; margin-bottom: 0; }
 .section-note { max-width: 255px; margin: 0 0 5px; color: var(--muted); font-size: .76rem; }
-.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px; }
-.project-card { min-width: 0; padding: 16px; border: 1px solid var(--line); background: var(--surface); }
+.about-section .section-heading, .approach-section .section-heading { align-items: flex-start; }
+.about-copy { max-width: 475px; }
+.about-copy p { margin: 0 0 13px; color: var(--muted); font-size: .84rem; line-height: 1.9; }
+.about-copy p:last-child { margin-bottom: 0; }
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; }
+.project-card { min-width: 0; padding: 17px 0 20px; border-top: 1px solid var(--line); }
 .project-card-top { display: flex; align-items: center; justify-content: space-between; color: #70766c; font-size: .58rem; font-weight: 750; letter-spacing: .1em; }
 .project-category span { padding: 0 4px; color: #a5aa9f; }
 .project-number { color: #9da196; font-size: .61rem; }
-.project-art { position: relative; display: grid; height: 218px; overflow: hidden; place-items: center; margin: 14px 0 18px; }
-.insurance-art { background: #e9ece5; }
-.insurance-art::before { position: absolute; inset: 0; background: radial-gradient(ellipse at 68% 34%, rgb(115 146 126 / 18%), transparent 58%); content: ""; }
-.art-orbit { position: absolute; width: 208px; height: 112px; border: 1px solid rgb(77 108 88 / 35%); border-radius: 50%; transform: rotate(-33deg); }
-.orbit-two { width: 168px; height: 168px; border-color: rgb(77 108 88 / 22%); transform: rotate(38deg); }
-.art-center { position: relative; display: grid; width: 64px; height: 64px; place-content: center; border: 1px solid #aeb9aa; border-radius: 50%; background: #f5f6f1; color: #435c4b; font-size: .78rem; font-weight: 800; letter-spacing: -.04em; }
-.art-center span { position: absolute; top: -8px; right: -6px; color: #b47a56; font-size: 1rem; }
-.art-label { position: absolute; right: 17px; bottom: 15px; color: #7d877b; font-size: .5rem; font-weight: 750; letter-spacing: .1em; }
-.notes-art { background: #eee9df; }
-.note-sheet { position: relative; display: flex; width: 170px; height: 150px; flex-direction: column; justify-content: center; gap: 12px; padding: 24px 24px 20px 46px; transform: rotate(-4deg); border: 1px solid #d6cec0; background: #faf8f3; box-shadow: 13px 15px 0 rgb(112 95 71 / 9%); }
-.note-mark { position: absolute; top: 21px; left: 19px; color: #718474; font-family: Georgia, serif; font-size: 1.35rem; font-style: italic; }
-.note-line { display: block; width: 78%; height: 1px; background: #c9c7bc; }
-.note-line-long { width: 100%; }
-.note-line-short { width: 56%; }
-.note-highlight { position: absolute; right: 24px; bottom: 23px; width: 45px; height: 7px; background: #d7dfcd; }
-.notes-caption { position: absolute; right: 15px; bottom: 13px; color: #8d877b; font-size: .5rem; font-weight: 750; letter-spacing: .08em; }
-.project-details { display: flex; min-height: 90px; align-items: flex-end; justify-content: space-between; gap: 17px; }
-.project-details h3 { margin: 0 0 4px; font-size: 1.18rem; font-weight: 650; letter-spacing: -.04em; }
+.project-details { display: flex; min-height: 130px; align-items: flex-start; flex-direction: column; justify-content: space-between; gap: 15px; padding-top: 27px; }
+.project-details h3 { margin: 0 0 8px; font-size: 1.3rem; font-weight: 650; letter-spacing: -.04em; }
 .project-details p { max-width: 310px; margin: 0; color: var(--muted); font-size: .72rem; line-height: 1.65; }
 .project-link { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 9px; color: var(--green); font-size: .67rem; font-weight: 700; text-decoration: none; }
 .project-link:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -172,7 +160,6 @@ h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; letter-spacing: -.065e
   .section-heading h2 { font-size: 2.35rem; }
   .section-note { max-width: 340px; }
   .project-grid { grid-template-columns: 1fr; gap: 13px; }
-  .project-art { height: 205px; }
   .project-details { min-height: auto; }
   .experience-row { grid-template-columns: 1fr 1fr; gap: 8px 13px; padding: 19px 3px; }
   .experience-date { grid-column: 1 / -1; }
