@@ -1,143 +1,14 @@
-.site-nav a[aria-current="page"] {
-  color: var(--ink);
-}
-
-.filter-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.filter-button {
-  min-height: 36px;
-  padding: 0 12px;
-  border: 1px solid var(--line);
-  background: var(--paper);
-  color: var(--muted);
-  cursor: pointer;
-  font: 650 .68rem/1 var(--sans);
-  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
-}
-
-.filter-button:hover,
-.filter-button.is-active {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.filter-button:focus-visible,
 .code-disclosure summary:focus-visible {
   outline: 3px solid #b96845;
   outline-offset: 3px;
 }
 
-.project-count {
-  min-height: 1.4em;
-  margin: 0 0 6px;
-  color: var(--muted);
-  font-size: .68rem;
-}
-
-.project-grid {
-  align-items: start;
-}
-
-.project-card {
-  min-height: 245px;
-}
-
-.project-details {
-  min-height: 190px;
-}
-
-.project-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-
-.empty-state {
-  padding: 20px 0;
-  color: var(--muted);
-}
-
-.directory-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.directory-card {
-  min-width: 0;
-  padding-top: 17px;
-  border-top: 1px solid var(--line);
-}
-
-.directory-card-heading {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  min-height: 85px;
-}
-
-.directory-card-heading h3 {
-  margin: 0;
-  font-size: 1.05rem;
-  letter-spacing: -.03em;
-}
-
-.directory-label,
 .card-kicker {
   margin: 0 0 8px;
   color: #777d73;
   font-size: .55rem;
   font-weight: 750;
   letter-spacing: .12em;
-}
-
-.student-id {
-  flex: 0 0 auto;
-  padding: 5px 7px;
-  border: 1px solid var(--line);
-  color: var(--green);
-  font: 650 .58rem/1.3 var(--sans);
-}
-
-.student-details {
-  margin: 0;
-  border-top: 1px solid var(--line);
-}
-
-.student-details > div {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--line);
-  font-size: .68rem;
-}
-
-.student-details dt {
-  color: var(--muted);
-}
-
-.student-details dd {
-  margin: 0;
-  text-align: right;
-  font-weight: 650;
-}
-
-.completion-note {
-  max-width: 760px;
-  margin: 0 0 25px;
-  padding: 13px 15px;
-  border-left: 3px solid var(--green);
-  background: var(--surface);
-  color: var(--muted);
-  font-size: .74rem;
 }
 
 .exercise-grid {
@@ -161,14 +32,14 @@
 
 .exercise-number {
   display: inline-flex;
-  width: 35px;
-  height: 35px;
+  width: 48px;
+  height: 48px;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  background: var(--surface);
-  color: var(--green);
-  font-size: .63rem;
+  background: #f8e9e3;
+  color: #b8400f;
+  font-size: .88rem;
   font-weight: 750;
 }
 
@@ -414,26 +285,7 @@
   white-space: pre;
 }
 
-.week-contact {
-  margin-top: 82px;
-}
-
-@media (max-width: 850px) {
-  .directory-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
 @media (max-width: 620px) {
-  .project-card {
-    min-height: auto;
-  }
-
-  .project-details {
-    min-height: auto;
-  }
-
-  .directory-grid,
   .exercise-grid {
     grid-template-columns: 1fr;
   }
@@ -446,13 +298,9 @@
     grid-template-columns: 1fr;
   }
 
-  .week-contact {
-    margin-top: 64px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .filter-button,
   .product-card {
     transition: none;
   }

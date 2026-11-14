@@ -1,21 +1,15 @@
-import { useState } from 'react';
 import myPhoto from '../../assets/xushnudbek.jpg';
 import '../../portfolio.css';
 import Card from './components/Card.jsx';
 import ConditionalDemo from './components/ConditionalDemo.jsx';
-import FilterBar from './components/FilterBar.jsx';
 import Greeting from './components/Greeting.jsx';
 import NotificationList from './components/NotificationList.jsx';
 import ProductCard from './components/ProductCard.jsx';
 import ProfileCard from './components/ProfileCard.jsx';
-import ProjectList from './components/ProjectList.jsx';
 import StudentCard from './components/StudentCard.jsx';
 import StudentList from './components/StudentList.jsx';
-import StudentProfileCard from './components/StudentProfileCard.jsx';
-import { notifications, profile, projects, students, studentsForList } from './data/projects.js';
+import { notifications, profile, studentsForList } from './data/exercises.js';
 import './style.css';
-
-const technologies = [...new Set(projects.flatMap((project) => project.tech))].sort();
 
 function CodeDisclosure({ children }) {
   return (
@@ -44,90 +38,21 @@ function Exercise({ number, id, origin, title, description, code, children }) {
 }
 
 function App() {
-  const [selectedTechnology, setSelectedTechnology] = useState('All');
-  const visibleProjects = projects.filter(
-    (project) => selectedTechnology === 'All' || project.tech.includes(selectedTechnology),
-  );
-
   return (
     <div className="page-shell">
       <header className="site-header">
         <a className="wordmark" href="../../index.html" aria-label="Coursework home">XH<span>.</span></a>
         <nav className="site-nav" aria-label="Week 11 navigation">
-          <a href="#projects">Projects</a>
-          <a href="#directory">Directory</a>
           <a href="#practice">Practice</a>
         </nav>
         <a className="header-link" href="../../portfolio.html">Portfolio <span aria-hidden="true">↗</span></a>
       </header>
 
       <main id="main-content">
-        <section className="hero" id="top" aria-labelledby="hero-title">
-          <div className="hero-copy">
-            <p className="eyebrow"><span className="status-dot" aria-hidden="true" /> WEEK 11 <span className="eyebrow-divider">/</span> REACT COMPONENTS &amp; PROPS</p>
-            <h1 id="hero-title">Small pieces.<br /><span>Clear interfaces.</span></h1>
-            <p className="hero-intro">
-              A hands-on set of React examples: reusable components, props, lists, and conditional
-              rendering, alongside a filterable gallery of my work.
-            </p>
-            <div className="hero-actions">
-              <a className="button button-dark" href="#practice">Explore the exercises <span aria-hidden="true">↓</span></a>
-              <a className="text-link" href="#projects">View project gallery <span aria-hidden="true">↘</span></a>
-            </div>
-            <div className="hero-meta">
-              <span>{profile.name}</span>
-              <span className="meta-separator" aria-hidden="true">·</span>
-              <span>{profile.university}</span>
-            </div>
-          </div>
-          <div className="portrait-wrap">
-            <div className="portrait-frame">
-              <img src={myPhoto} alt="Portrait of Xushnudbek Hamilton" width="768" height="911" />
-            </div>
-            <span className="portrait-note">WEEK 11 <span aria-hidden="true">—</span> COMPONENTS &amp; PROPS</span>
-            <span className="portrait-index" aria-hidden="true">11 / 11</span>
-          </div>
-        </section>
-
-        <section className="section projects-section" id="projects" aria-labelledby="projects-title">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">HOMEWORK <span className="eyebrow-divider">/</span> 01</p>
-              <h2 id="projects-title">Projects from reusable data.</h2>
-            </div>
-            <p className="section-note">Filter six projects by a technology used to build them.</p>
-          </div>
-          <FilterBar options={technologies} selected={selectedTechnology} onSelect={setSelectedTechnology} />
-          <p className="project-count" role="status" aria-live="polite">
-            Showing {visibleProjects.length} of {projects.length} projects
-            {selectedTechnology !== 'All' && ` using ${selectedTechnology}`}
-          </p>
-          <ProjectList projects={visibleProjects} />
-        </section>
-
-        <section className="section directory-section" id="directory" aria-labelledby="directory-title">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">TASK 11-A <span className="eyebrow-divider">/</span> STUDENT DIRECTORY</p>
-              <h2 id="directory-title">One card, several students.</h2>
-            </div>
-            <p className="section-note">Each directory entry uses the same component and receives its details as props.</p>
-          </div>
-          <p className="completion-note">
-            The two classmate entries are clearly marked sample data. Replace them with real
-            classmates if your assignment requires it, and add your GPA before submitting.
-          </p>
-          <div className="directory-grid">
-            {students.map((student) => (
-              <StudentProfileCard key={student.id} {...student} />
-            ))}
-          </div>
-        </section>
-
         <section className="section practice-section" id="practice" aria-labelledby="practice-title">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">CLASS PRACTICE <span className="eyebrow-divider">/</span> 02</p>
+              <p className="eyebrow">WEEK 11 <span className="eyebrow-divider">/</span> REACT COMPONENTS &amp; PROPS</p>
               <h2 id="practice-title">Eight patterns, tried live.</h2>
             </div>
             <p className="section-note">Each example includes a working component and a compact code sample.</p>
@@ -160,20 +85,26 @@ function App() {
               id="student-card"
               origin="Props practice"
               title="A student card from props"
-              description="Pass a name, student ID, and major into one reusable card."
-              code={`function StudentCard({ name, id, major }) {
+              description="Pass a name, student ID, major, and GPA into one reusable card."
+              code={`function StudentCard({ name, id, major, gpa }) {
   return (
     <article>
       <h3>{name}</h3>
       <p>ID: {id}</p>
       <p>Major: {major}</p>
+      <p>GPA: {gpa}</p>
     </article>
   );
 }`}
             >
               <div className="demo-card-grid">
-                <StudentCard name="Jamie Park" id="DEMO-103" major="Computer Engineering" />
-                <StudentCard name={profile.name} id={profile.studentId} major="Computer Engineering" />
+                <StudentCard name="Jamie Park" id="DEMO-103" major="Computer Engineering" gpa="3.8" />
+                <StudentCard
+                  name={profile.name}
+                  id={profile.studentId}
+                  major="Computer Engineering"
+                  gpa={profile.gpa}
+                />
               </div>
             </Exercise>
 
@@ -304,18 +235,11 @@ function App() {
           </div>
         </section>
 
-        <section className="contact-panel week-contact" aria-labelledby="contact-title">
-          <p className="eyebrow">MORE ABOUT MY WORK <span className="eyebrow-divider">/</span> PORTFOLIO</p>
-          <div className="contact-row">
-            <h2 id="contact-title">See the complete picture.</h2>
-            <a className="contact-link" href="../../portfolio.html">Visit my portfolio <span aria-hidden="true">↗</span></a>
-          </div>
-        </section>
       </main>
 
       <footer className="site-footer">
         <a className="footer-home" href="../../index.html">Coursework home <span aria-hidden="true">↑</span></a>
-        <a href="../../portfolio.html">Xushnudbek Hamilton <span aria-hidden="true">↗</span></a>
+        <a href="../../portfolio.html">Xushnudbek <span aria-hidden="true">↗</span></a>
         <span>WEEK 11 <span aria-hidden="true">·</span> REACT COMPONENTS &amp; PROPS</span>
       </footer>
     </div>
