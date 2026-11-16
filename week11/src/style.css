@@ -107,6 +107,52 @@
   margin-bottom: 8px;
 }
 
+.student-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.profile-card {
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-2px);
+  border-color: #b6c4b8;
+}
+
+.profile-card .card-header {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.profile-card .student-name {
+  margin: 0;
+  font-size: .88rem;
+}
+
+.profile-card .student-id {
+  color: var(--muted);
+  font-size: .62rem;
+}
+
+.profile-card .card-body {
+  padding-top: 10px;
+}
+
+.profile-card .card-body p {
+  margin: 0 0 5px;
+}
+
+.profile-card .card-body p:last-child {
+  margin-bottom: 0;
+}
+
 .mini-card a {
   color: var(--green);
   font-size: .67rem;
@@ -144,6 +190,43 @@
 .notification-list {
   display: grid;
   gap: 9px;
+}
+
+.notification-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.notification-filter-button {
+  min-height: 28px;
+  padding: 0 9px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: .62rem;
+  cursor: pointer;
+}
+
+.notification-filter-button[aria-pressed="true"] {
+  border-color: var(--green);
+  background: #edf3ee;
+  color: #385340;
+}
+
+.notification-count {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: .62rem;
+}
+
+.notification-empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: .72rem;
 }
 
 .notification {
@@ -295,6 +378,10 @@
   }
 
   .demo-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .student-card-grid {
     grid-template-columns: 1fr;
   }
 

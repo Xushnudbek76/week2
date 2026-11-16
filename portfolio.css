@@ -91,6 +91,14 @@ h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; letter-spacing: -.065e
 .about-copy { max-width: 475px; }
 .about-copy p { margin: 0 0 13px; color: var(--muted); font-size: .84rem; line-height: 1.9; }
 .about-copy p:last-child { margin-bottom: 0; }
+#portfolio-projects-root { display: grid; gap: 18px; }
+.portfolio-gallery { display: grid; gap: 18px; }
+.project-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.project-filters { display: flex; flex-wrap: wrap; gap: 7px; }
+.project-filter-button { min-height: 34px; padding: 0 12px; border: 1px solid var(--line); background: transparent; color: var(--muted); font: inherit; font-size: .67rem; cursor: pointer; transition: background 160ms ease, color 160ms ease, border-color 160ms ease; }
+.project-filter-button:hover { border-color: var(--green); color: var(--green); }
+.project-filter-button[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: #fff; }
+.project-count { margin: 0; color: var(--muted); font-size: .67rem; }
 .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; }
 .project-card { min-width: 0; padding: 17px 0 20px; border-top: 1px solid var(--line); }
 .project-card-top { display: flex; align-items: center; justify-content: space-between; color: #70766c; font-size: .58rem; font-weight: 750; letter-spacing: .1em; }
@@ -99,6 +107,10 @@ h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; letter-spacing: -.065e
 .project-details { display: flex; min-height: 130px; align-items: flex-start; flex-direction: column; justify-content: space-between; gap: 15px; padding-top: 27px; }
 .project-details h3 { margin: 0 0 8px; font-size: 1.3rem; font-weight: 650; letter-spacing: -.04em; }
 .project-details p { max-width: 310px; margin: 0; color: var(--muted); font-size: .72rem; line-height: 1.65; }
+.project-tech-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
+.project-tech-tag { padding: 3px 7px; border: 1px solid var(--line); color: #596057; font-size: .58rem; line-height: 1.4; }
+.project-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.project-empty { margin: 0; padding: 18px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .76rem; }
 .project-link { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 9px; color: var(--green); font-size: .67rem; font-weight: 700; text-decoration: none; }
 .project-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 .project-link > span[aria-hidden] { font-size: .9rem; }
@@ -159,6 +171,7 @@ h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; letter-spacing: -.065e
   .section-heading { align-items: flex-start; flex-direction: column; gap: 10px; margin-bottom: 20px; }
   .section-heading h2 { font-size: 2.35rem; }
   .section-note { max-width: 340px; }
+  .project-toolbar { align-items: flex-start; flex-direction: column; gap: 9px; }
   .project-grid { grid-template-columns: 1fr; gap: 13px; }
   .project-details { min-height: auto; }
   .experience-row { grid-template-columns: 1fr 1fr; gap: 8px 13px; padding: 19px 3px; }

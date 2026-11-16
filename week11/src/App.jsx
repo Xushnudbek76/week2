@@ -4,11 +4,12 @@ import Card from './components/Card.jsx';
 import ConditionalDemo from './components/ConditionalDemo.jsx';
 import Greeting from './components/Greeting.jsx';
 import NotificationList from './components/NotificationList.jsx';
+import PortfolioProjects from './components/PortfolioProjects.jsx';
 import ProductCard from './components/ProductCard.jsx';
 import ProfileCard from './components/ProfileCard.jsx';
 import StudentCard from './components/StudentCard.jsx';
 import StudentList from './components/StudentList.jsx';
-import { notifications, profile, studentsForList } from './data/exercises.js';
+import { notifications, profile, studentProfiles, studentsForList } from './data/exercises.js';
 import './style.css';
 
 function CodeDisclosure({ children }) {
@@ -52,68 +53,19 @@ function App() {
         <section className="section practice-section" id="practice" aria-labelledby="practice-title">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">WEEK 11 <span className="eyebrow-divider">/</span> REACT COMPONENTS &amp; PROPS</p>
-              <h2 id="practice-title">Eight patterns, tried live.</h2>
+              <p className="eyebrow">WEEK 11_1 <span className="eyebrow-divider">/</span> REACT COMPONENTS &amp; PROPS</p>
+              <h2 id="practice-title">Exercises and homework, tried live.</h2>
             </div>
-            <p className="section-note">Each example includes a working component and a compact code sample.</p>
+            <p className="section-note">The three class exercises and both homework tasks run as React components.</p>
           </div>
 
           <div className="exercise-grid">
             <Exercise
               number="E1"
-              id="first-component"
-              origin="Component basics"
-              title="One component, multiple uses"
-              description="Render the same greeting component three times with different props."
-              code={`function Greeting({ name = 'World' }) {
-  return <p>Hello, {name}!</p>;
-}
-
-<Greeting />
-<Greeting name="Ari" />
-<Greeting name="Sam" />`}
-            >
-              <div className="greeting-stack">
-                <Greeting />
-                <Greeting name="Ari" />
-                <Greeting name="Sam" />
-              </div>
-            </Exercise>
-
-            <Exercise
-              number="E2"
-              id="student-card"
-              origin="Props practice"
-              title="A student card from props"
-              description="Pass a name, student ID, major, and GPA into one reusable card."
-              code={`function StudentCard({ name, id, major, gpa }) {
-  return (
-    <article>
-      <h3>{name}</h3>
-      <p>ID: {id}</p>
-      <p>Major: {major}</p>
-      <p>GPA: {gpa}</p>
-    </article>
-  );
-}`}
-            >
-              <div className="demo-card-grid">
-                <StudentCard name="Jamie Park" id="DEMO-103" major="Computer Engineering" gpa="3.8" />
-                <StudentCard
-                  name={profile.name}
-                  id={profile.studentId}
-                  major="Computer Engineering"
-                  gpa={profile.gpa}
-                />
-              </div>
-            </Exercise>
-
-            <Exercise
-              number="E3"
               id="profile-card"
-              origin="Optional props"
-              title="A profile with a default avatar"
-              description="The first card uses its default image; the second receives a photo prop."
+              origin="Week 11_1 · Exercise 1"
+              title="A profile card with a default avatar"
+              description="Pass profile details into a reusable card; the first card uses its default avatar."
               code={`function ProfileCard({ name, role, email, avatarUrl = defaultAvatar }) {
   return (
     <article>
@@ -137,27 +89,35 @@ function App() {
             </Exercise>
 
             <Exercise
-              number="E4"
+              number="E2"
               id="notifications"
-              origin="Lists and conditions"
-              title="Notifications with icons"
-              description="Map an array to list items, use each notification ID as its key, and select an icon by type."
-              code={`{notifications.map(({ id, type, message }) => (
-  <li key={id} className={\`notification-\${type}\`}>
-    <span aria-hidden="true">{iconFor(type)}</span>
-    {message}
-  </li>
-))}`}
+              origin="Week 11_1 · Exercise 2"
+              title="Conditional icons in a notification list"
+              description="Map notifications by ID, show an icon by type, and filter the list interactively."
+              code={`{notifications.map(({ id, type, message }) => {
+  const icon = type === 'success'
+    ? '✅'
+    : type === 'warning'
+      ? '⚠️'
+      : 'ℹ️';
+
+  return (
+    <li key={id} className={\`notification-\${type}\`}>
+      <span aria-hidden="true">{icon}</span>
+      {message}
+    </li>
+  );
+})}`}
             >
               <NotificationList notifications={notifications} />
             </Exercise>
 
             <Exercise
-              number="E5"
+              number="E3"
               id="children"
-              origin="Composition"
-              title="Different content through children"
-              description="The wrapper stays the same while its parent supplies different content."
+              origin="Week 11_1 · Exercise 3"
+              title="A reusable card with children"
+              description="Keep the card wrapper reusable while passing different content through children."
               code={`function Card({ title, children }) {
   return (
     <section className="card">
@@ -167,20 +127,106 @@ function App() {
   );
 }
 
-<Card title="Topics"><p>Components and props</p></Card>`}
+<Card title="Lecture topics">
+  <ul><li>Components</li><li>Props</li></ul>
+</Card>
+<Card title="Homework"><p>Build a portfolio gallery.</p></Card>`}
             >
               <div className="demo-card-grid">
-                <Card title="Today’s topics"><p>Components · Props · State</p></Card>
-                <Card title="Next step"><p>Build a small component of your own.</p></Card>
+                <Card title="Lecture topics">
+                  <ul><li>Components</li><li>Props</li><li>State</li></ul>
+                </Card>
+                <Card title="Homework">
+                  <p>Build a portfolio gallery with reusable project cards and technology filters.</p>
+                </Card>
               </div>
             </Exercise>
 
             <Exercise
-              number="E6"
+              number="HW1"
+              id="student-card"
+              origin="Week 11_1 · Homework 1"
+              title="A student directory with five props"
+              description="Render three profile cards using a student ID, major, numeric year, and numeric GPA."
+              code={`function StudentCard({ name, studentId, major, year, gpa }) {
+  return (
+    <article className="profile-card">
+      <div className="card-header">
+        <h3 className="student-name">{name}</h3>
+        <span className="student-id">ID: {studentId}</span>
+      </div>
+      <div className="card-body">
+        <p>Major: {major}</p>
+        <p>Year: {year}</p>
+        <p>GPA: {gpa.toFixed(1)}</p>
+      </div>
+    </article>
+  );
+}
+
+{studentProfiles.map(({ id, ...student }) => (
+  <StudentCard key={id} {...student} />
+))}`}
+            >
+              <div className="student-card-grid">
+                {studentProfiles.map(({ id, ...student }) => (
+                  <StudentCard key={id} {...student} />
+                ))}
+              </div>
+            </Exercise>
+
+            <Exercise
+              number="HW2"
+              id="portfolio-gallery"
+              origin="Week 11_1 · Homework 2"
+              title="A portfolio gallery with technology filters"
+              description="Filter the projects below by technology. The same React gallery powers the project list on the portfolio."
+              code={`const categories = [
+  'All',
+  ...new Set(projects.flatMap((project) => project.techStack)),
+];
+
+const visibleProjects = activeFilter === 'All'
+  ? projects
+  : projects.filter((project) => project.techStack.includes(activeFilter));
+
+<FilterBar
+  categories={categories}
+  activeFilter={activeFilter}
+  onSelectFilter={setActiveFilter}
+/>
+<ProjectList projects={visibleProjects} />`}
+            >
+              <PortfolioProjects />
+            </Exercise>
+
+            <Exercise
+              number="P1"
+              id="first-component"
+              origin="Extra practice · Components"
+              title="One greeting component, multiple props"
+              description="Render the same component with default and custom names."
+              code={`function Greeting({ name = 'World' }) {
+  return <p>Hello, {name}!</p>;
+}
+
+<Greeting />
+<Greeting name="Ari" />
+<Greeting name="Sam" />`}
+            >
+              <div className="greeting-stack">
+                <Greeting />
+                <Greeting name="Ari" />
+                <Greeting name="Sam" />
+              </div>
+            </Exercise>
+
+            <Exercise
+              number="P2"
               id="product-card"
-              origin="Conditional UI"
+              origin="Extra practice · Conditional UI"
               title="A product card with stock status"
-              description="Format a price, show a rating, and change the stock label based on a boolean prop."
+              description="Format a price, show a rating, and change the stock label from a boolean prop."
               code={`function ProductCard({ name, price, rating, inStock }) {
   return (
     <article>
@@ -199,9 +245,9 @@ function App() {
             </Exercise>
 
             <Exercise
-              number="E7"
+              number="P3"
               id="lists"
-              origin="Rendering arrays"
+              origin="Extra practice · Rendering arrays"
               title="A list with stable keys"
               description="Render each record by its ID instead of using an array position as the key."
               code={`<ul>
@@ -216,11 +262,11 @@ function App() {
             </Exercise>
 
             <Exercise
-              number="E8"
+              number="P4"
               id="conditional"
-              origin="State and conditional rendering"
+              origin="Extra practice · State and conditional rendering"
               title="Switch between signed-out and signed-in UI"
-              description="This demo uses null, &&, and a ternary so you can switch between both states."
+              description="Use null, &&, and a ternary to switch between both states."
               code={`if (!message) return null;
 
 {user && <p>Welcome, {user.name}.</p>}
@@ -240,7 +286,7 @@ function App() {
       <footer className="site-footer">
         <a className="footer-home" href="../../index.html">Coursework home <span aria-hidden="true">↑</span></a>
         <a href="../../portfolio.html">Xushnudbek <span aria-hidden="true">↗</span></a>
-        <span>WEEK 11 <span aria-hidden="true">·</span> REACT COMPONENTS &amp; PROPS</span>
+        <span>WEEK 11_1 <span aria-hidden="true">·</span> REACT COMPONENTS &amp; PROPS</span>
       </footer>
     </div>
   );
