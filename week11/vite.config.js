@@ -12,6 +12,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve('src/index.html'),
+        week11_2: resolve('src/week11_2.html'),
         portfolioWidget: resolve('src/portfolio-widget.jsx'),
       },
       output: {
