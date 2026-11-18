@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../../portfolio.css';
 import './style.css';
 import './week11_2.css';
@@ -7,6 +7,12 @@ const initialTasks = [
   { id: 1, title: 'Review component props' },
   { id: 2, title: 'Practice state updates' },
   { id: 3, title: 'Build something small' },
+];
+
+const initialCompletedTasks = [
+  { id: 1, title: 'Read the React lesson', completed: true },
+  { id: 2, title: 'Try the counter', completed: false },
+  { id: 3, title: 'Update the task list', completed: false },
 ];
 
 function CodeDisclosure({ children }) {
@@ -42,6 +48,15 @@ function App() {
   const [draft, setDraft] = useState('');
   const [nextTaskId, setNextTaskId] = useState(4);
   const [showDetails, setShowDetails] = useState(false);
+  const [completedTasks, setCompletedTasks] = useState(initialCompletedTasks);
+  const [taskFilter, setTaskFilter] = useState('all');
+  const [profile, setProfile] = useState({ name: '', email: '' });
+  const [profileMessage, setProfileMessage] = useState('');
+  const [note, setNote] = useState(() => localStorage.getItem('week11-note') || '');
+
+  useEffect(() => {
+    localStorage.setItem('week11-note', note);
+  }, [note]);
 
   function addTask(event) {
     event.preventDefault();
@@ -56,6 +71,49 @@ function App() {
 
   function removeTask(taskId) {
     setTasks((currentTasks) => currentTasks.filter((task) => task.id !== taskId));
+  }
+
+  function toggleCompletedTask(taskId) {
+    setCompletedTasks((currentTasks) =>
+      currentTasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
+  }
+
+  function clearCompletedTasks() {
+    setCompletedTasks((currentTasks) =>
+      currentTasks.filter((task) => !task.completed)
+    );
+  }
+
+  const visibleCompletedTasks = completedTasks.filter((task) => {
+    if (taskFilter === 'active') return !task.completed;
+    if (taskFilter === 'done') return task.completed;
+    return true;
+  });
+
+  function updateProfile(event) {
+    const { name: fieldName, value } = event.target;
+    setProfile((currentProfile) => ({ ...currentProfile, [fieldName]: value }));
+  }
+
+  function saveProfile(event) {
+    event.preventDefault();
+    const cleanName = profile.name.trim();
+    const cleanEmail = profile.email.trim();
+
+    if (!cleanName || !cleanEmail) {
+      setProfileMessage('Please enter both name and email.');
+      return;
+    }
+
+    if (!cleanEmail.includes('@')) {
+      setProfileMessage('Please enter an email containing @.');
+      return;
+    }
+
+    setProfileMessage(`Saved ${cleanName}'s profile.`);
   }
 
   return (
@@ -221,6 +279,156 @@ setTasks((current) => current.filter((task) => task.id !== taskId));`}
                       State lets React update just the part of the interface that changed.
                     </p>
                   )}
+                </div>
+              </div>
+            </Exercise>
+
+            <Exercise
+              number="E5"
+              id="completed-tasks"
+              title="Complete and filter tasks"
+              description="Use object updates to mark tasks complete, then filter the list by status."
+              code={`function toggleCompletedTask(taskId) {
+  setCompletedTasks((currentTasks) =>
+    currentTasks.map((task) =>
+      task.id === taskId
+        ? { ...task, completed: !task.completed }
+        : task
+    )
+  );
+}`}
+            >
+              <div className="completed-task-demo">
+                <div className="task-filter-buttons" aria-label="Filter tasks">
+                  {[
+                    ['all', 'All'],
+                    ['active', 'Active'],
+                    ['done', 'Done'],
+                  ].map(([value, label]) => (
+                    <button
+                      className="task-filter-button"
+                      type="button"
+                      key={value}
+                      aria-pressed={taskFilter === value}
+                      onClick={() => setTaskFilter(value)}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+                <ul className="completed-task-list">
+                  {visibleCompletedTasks.map((task) => (
+                    <li key={task.id}>
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={task.completed}
+                          onChange={() => toggleCompletedTask(task.id)}
+                        />
+                        <span className={task.completed ? 'task-is-complete' : ''}>
+                          {task.title}
+                        </span>
+                      </label>
+                    </li>
+                  ))}
+                </ul>
+                {visibleCompletedTasks.length === 0 && (
+                  <p className="state-empty">No tasks match this filter.</p>
+                )}
+                <button
+                  className="state-text-button"
+                  type="button"
+                  onClick={clearCompletedTasks}
+                  disabled={!completedTasks.some((task) => task.completed)}
+                >
+                  Clear completed
+                </button>
+              </div>
+            </Exercise>
+
+            <Exercise
+              number="E6"
+              id="profile-form"
+              title="Validate a controlled form"
+              description="Keep two fields in one object and show a simple message after submission."
+              code={`const [profile, setProfile] = useState({
+  name: '',
+  email: '',
+});
+
+function updateProfile(event) {
+  setProfile((current) => ({
+    ...current,
+    [event.target.name]: event.target.value,
+  }));
+}`}
+            >
+              <form className="profile-form" onSubmit={saveProfile} noValidate>
+                <label className="state-label" htmlFor="profile-name">Name</label>
+                <input
+                  className="state-input"
+                  id="profile-name"
+                  name="name"
+                  value={profile.name}
+                  onChange={updateProfile}
+                  placeholder="Your name"
+                />
+                <label className="state-label" htmlFor="profile-email">Email</label>
+                <input
+                  className="state-input"
+                  id="profile-email"
+                  name="email"
+                  type="email"
+                  value={profile.email}
+                  onChange={updateProfile}
+                  placeholder="you@example.com"
+                />
+                <button className="state-button state-button-primary" type="submit">
+                  Save profile
+                </button>
+                {profileMessage && (
+                  <p className="profile-message" role="status">{profileMessage}</p>
+                )}
+              </form>
+            </Exercise>
+
+            <Exercise
+              number="E7"
+              id="saved-note"
+              title="Save a note in the browser"
+              description="Use an effect to save state with localStorage whenever the note changes."
+              code={`const [note, setNote] = useState(() =>
+  localStorage.getItem('week11-note') || ''
+);
+
+useEffect(() => {
+  localStorage.setItem('week11-note', note);
+}, [note]);`}
+            >
+              <div className="saved-note-demo">
+                <label className="state-label" htmlFor="saved-note-input">
+                  Quick note
+                </label>
+                <textarea
+                  className="state-textarea"
+                  id="saved-note-input"
+                  value={note}
+                  onChange={(event) => setNote(event.target.value)}
+                  placeholder="Type something..."
+                  rows="4"
+                />
+                <div className="saved-note-actions">
+                  <p className="saved-note-status" aria-live="polite">
+                    {note ? 'Saved in this browser' : 'Nothing saved yet'}
+                  </p>
+                  <button
+                    className="state-text-button"
+                    type="button"
+                    onClick={() => setNote('')}
+                    disabled={!note}
+                  >
+                    Clear
+                  </button>
                 </div>
               </div>
             </Exercise>
