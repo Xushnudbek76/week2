@@ -5,6 +5,7 @@ import { projects } from '../data/projects.js';
 
 function PortfolioProjects() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [shortlist, setShortlist] = useState([]);
   const categories = [
     'All',
     ...new Set(projects.flatMap((project) => project.techStack)),
@@ -12,6 +13,18 @@ function PortfolioProjects() {
   const visibleProjects = activeFilter === 'All'
     ? projects
     : projects.filter((project) => project.techStack.includes(activeFilter));
+
+  function toggleShortlist(projectId) {
+    setShortlist((current) =>
+      current.includes(projectId)
+        ? current.filter((id) => id !== projectId)
+        : [...current, projectId],
+    );
+  }
+
+  function clearShortlist() {
+    setShortlist([]);
+  }
 
   return (
     <div className="portfolio-gallery">
@@ -21,11 +34,23 @@ function PortfolioProjects() {
           activeFilter={activeFilter}
           onSelectFilter={setActiveFilter}
         />
-        <p className="project-count" aria-live="polite">
-          Showing {visibleProjects.length} of {projects.length} projects
-        </p>
+        <div className="shortlist-summary" aria-live="polite">
+          <p className="project-count">
+            Showing {visibleProjects.length} of {projects.length} projects
+          </p>
+          {shortlist.length > 0 && (
+            <>
+              <span className="shortlist-count">{shortlist.length} shortlisted</span>
+              <button className="shortlist-clear" type="button" onClick={clearShortlist}>Clear</button>
+            </>
+          )}
+        </div>
       </div>
-      <ProjectList projects={visibleProjects} />
+      <ProjectList
+        projects={visibleProjects}
+        shortlist={shortlist}
+        onToggleShortlist={toggleShortlist}
+      />
     </div>
   );
 }

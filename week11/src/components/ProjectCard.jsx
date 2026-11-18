@@ -7,6 +7,9 @@ function ProjectCard({
   caseStudyLink,
   domain,
   number,
+  id,
+  isShortlisted = false,
+  onToggleShortlist,
 }) {
   return (
     <article className="project-card">
@@ -25,6 +28,17 @@ function ProjectCard({
           </ul>
         </div>
         <div className="project-actions">
+          {onToggleShortlist && (
+            <button
+              className="project-shortlist-button"
+              type="button"
+              aria-pressed={isShortlisted}
+              onClick={() => onToggleShortlist(id)}
+            >
+              <span aria-hidden="true">{isShortlisted ? '−' : '+'}</span>
+              {isShortlisted ? 'Shortlisted' : 'Shortlist'}
+            </button>
+          )}
           {caseStudyLink ? (
             <a
               className="project-link"
